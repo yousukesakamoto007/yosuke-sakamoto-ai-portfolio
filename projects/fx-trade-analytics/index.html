@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FX Trade Analytics</title>
+    <meta
+      name="description"
+      content="FX取引履歴CSVから総損益、勝率、最大ドローダウン、PF、月次・通貨ペア別成績をブラウザ内で可視化する分析アプリ"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <p class="eyebrow">Portfolio Product</p>
+          <h1>FX Trade Analytics</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="secondary-link" href="/portfolio/index.html">3 Projects</a>
+        <button id="loadSampleButton" type="button">サンプル読込</button>
+        <a class="secondary-link" href="./sample-trades.csv" download>サンプルCSV</a>
+        <label class="file-button">
+          CSVを選択
+          <input id="csvInput" type="file" accept=".csv,text/csv" />
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-band">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>取引記録を読み込み、損益・勝率・最大ドローダウンを可視化</h2>
+        </div>
+        <p>
+          MT4/MT5や手入力CSVを想定したブラウザ内分析ツールです。CSVは外部送信されず、
+          読み込んだ端末上だけで集計されます。
+        </p>
+      </section>
+
+      <section class="data-banner" aria-live="polite">
+        <div>
+          <strong id="dataStatus">サンプルデータを準備中</strong>
+          <span>CSVはサーバーへ送信せず、ブラウザ内だけで処理します。</span>
+        </div>
+        <p id="importError" class="error-message hidden" role="alert"></p>
+      </section>
+
+      <section class="control-grid">
+        <div class="panel import-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">CSV Format</p>
+              <h2>対応カラム</h2>
+            </div>
+          </div>
+          <p class="hint">
+            推奨: <code>date,pair,side,entry,exit,tp,sl,entry_time,exit_time,exit_reason,profit,strategy,note</code>
+          </p>
+          <p class="hint">
+            日本語カラムにも対応: <code>日付,通貨ペア,売買,損益,手法,メモ</code>
+          </p>
+        </div>
+
+        <div class="panel filters-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Filters</p>
+              <h2>分析条件</h2>
+            </div>
+            <button id="resetFiltersButton" class="secondary" type="button">リセット</button>
+          </div>
+          <div class="filters">
+            <label>
+              通貨ペア
+              <select id="pairFilter"></select>
+            </label>
+            <label>
+              手法
+              <select id="strategyFilter"></select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel period-panel" aria-labelledby="periodTitle">
+        <div class="panel-head period-head">
+          <div>
+            <p class="section-label">Performance period</p>
+            <h2 id="periodTitle">集計期間</h2>
+          </div>
+          <strong id="periodSummary">表示期間：全期間累計</strong>
+        </div>
+        <div id="periodRangeButtons" class="period-buttons" aria-label="年・累計を選択"></div>
+        <div id="periodDetailButtons" class="period-buttons month-buttons hidden" aria-label="月を選択"></div>
+      </section>
+
+      <section class="metric-grid" id="metricGrid"></section>
+
+      <section class="chart-grid">
+        <div class="panel chart-panel wide">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Equity Curve</p>
+              <h2>累積損益</h2>
+            </div>
+          </div>
+          <canvas id="equityCanvas" width="1200" height="440" aria-label="累積損益グラフ"></canvas>
+        </div>
+
+        <div class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Drawdown</p>
+              <h2>ドローダウン</h2>
+            </div>
+          </div>
+          <canvas id="drawdownCanvas" width="760" height="360" aria-label="ドローダウングラフ"></canvas>
+        </div>
+
+        <div class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Monthly P/L</p>
+              <h2>月次損益</h2>
+            </div>
+          </div>
+          <canvas id="monthlyCanvas" width="760" height="360" aria-label="月次損益グラフ"></canvas>
+        </div>
+      </section>
+
+      <section class="analysis-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">By Pair</p>
+              <h2>通貨ペア別</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>通貨ペア</th>
+                  <th>回数</th>
+                  <th>勝率</th>
+                  <th>損益</th>
+                  <th>PF</th>
+                </tr>
+              </thead>
+              <tbody id="pairTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Recent Trades</p>
+              <h2>取引一覧</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>日付</th>
+                  <th>通貨</th>
+                  <th>売買</th>
+                  <th>損益</th>
+                  <th>手法</th>
+                  <th>取引図</th>
+                </tr>
+              </thead>
+              <tbody id="tradeTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="emptyState" class="empty-state">
+        <h2>サンプルデータを読み込むか、CSVを選択してください</h2>
+        <p>
+          まずは同梱サンプルで表示を確認できます。実データに合わせてカラム名を調整する拡張も可能です。
+        </p>
+      </section>
+
+      <section class="project-notes" aria-labelledby="projectNotesTitle">
+        <div>
+          <p class="section-label">Product decisions</p>
+          <h2 id="projectNotesTitle">12年間のFX経験を、第三者が操作できる分析ツールへ</h2>
+        </div>
+        <div class="decision-grid">
+          <article>
+            <strong>課題定義</strong>
+            <p>取引結果を感覚ではなく、同じ指標と条件で振り返れることを完成条件にしました。</p>
+          </article>
+          <article>
+            <strong>設計判断</strong>
+            <p>損益だけでなく、最大ドローダウン、PF、ペイオフ、期間・手法別の比較を優先しました。</p>
+          </article>
+          <article>
+            <strong>品質と安全性</strong>
+            <p>必須列の検証、入力文字列の安全な表示、集計ロジックの自動テストを実装しています。</p>
+          </article>
+          <article>
+            <strong>AI活用</strong>
+            <p>Claude Code・Codexを実装と検証に活用し、要件、指標選定、完成判断は制作者が担いました。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="tradeDialog" class="trade-dialog" aria-labelledby="tradeDialogTitle">
+      <div class="trade-dialog-head">
+        <div>
+          <p class="section-label">Trade review</p>
+          <h2 id="tradeDialogTitle">取引詳細</h2>
+        </div>
+        <button id="closeTradeDialog" class="icon-button" type="button" aria-label="閉じる" title="閉じる">×</button>
+      </div>
+      <div id="tradeDetailMetrics" class="trade-detail-metrics"></div>
+      <section class="trade-map-panel" aria-labelledby="tradeMapTitle">
+        <div class="trade-map-heading">
+          <div>
+            <strong id="tradeMapTitle">エントリー・TP・LC・決済位置</strong>
+            <span>価格水準を示す図です。実際の値動き履歴ではありません。</span>
+          </div>
+          <button id="downloadTradeMap" class="secondary" type="button">PNG保存</button>
+        </div>
+        <canvas id="tradeMapCanvas" width="1100" height="520" aria-label="取引の価格水準図"></canvas>
+      </section>
+      <section class="chart-image-panel" aria-labelledby="chartImageTitle">
+        <div class="trade-map-heading">
+          <div>
+            <strong id="chartImageTitle">実チャート画像</strong>
+            <span>スクリーンショットを追加すると、この取引に紐づけて拡大表示できます。</span>
+          </div>
+          <label class="image-file-button">
+            画像を追加
+            <input id="tradeChartInput" type="file" accept="image/png,image/jpeg,image/webp" />
+          </label>
+        </div>
+        <div id="chartImageEmpty" class="chart-image-empty">この取引には画像が登録されていません。</div>
+        <img id="tradeChartImage" class="trade-chart-image hidden" alt="選択した取引の実チャート画像" />
+      </section>
+      <div class="trade-note-block">
+        <strong>振り返りメモ</strong>
+        <p id="tradeDetailNote">-</p>
+      </div>
+    </dialog>
+
+    <footer>
+      <strong>Yosuke Sakamoto</strong>
+      <span>AIエージェント活用 / 業務改善 / Webアプリ開発</span>
+    </footer>
+
+    <script src="./analytics-core.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

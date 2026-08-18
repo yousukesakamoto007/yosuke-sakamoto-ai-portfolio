@@ -1,0 +1,1943 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>京丹波・自然農 野菜年間カレンダー（月暦対応・オフライン版）</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="京丹波・自然農 野菜年間カレンダー（月暦対応・オフライン版）" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;京丹波・自然農 野菜年間カレンダー（月暦対応・オフライン版）&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;veg-offline-planner-v2&quot;&gt;
+  &lt;style&gt;
+    #veg-offline-planner-v2 {
+      --p-soil: var(--viz-series-6);
+      --p-seed: var(--viz-series-1);
+      --p-nursery: var(--viz-series-2);
+      --p-plant: var(--viz-series-3);
+      --p-care: var(--viz-series-4);
+      --p-harvest: var(--viz-series-5);
+      --p-clean: var(--muted-foreground);
+      color: var(--foreground);
+      font-size: var(--font-size-base);
+    }
+    #veg-offline-planner-v2 * { box-sizing: border-box; }
+    #veg-offline-planner-v2 .stack { display: grid; gap: 14px; }
+    #veg-offline-planner-v2 .control-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-items: end;
+    }
+    #veg-offline-planner-v2 .form-label { display: grid; gap: 5px; }
+    #veg-offline-planner-v2 .climate-head,
+    #veg-offline-planner-v2 .style-head {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    #veg-offline-planner-v2 .climate-chart { width: 100%; height: auto; display: block; }
+    #veg-offline-planner-v2 .climate-grid-line { stroke: var(--border); stroke-width: 1; }
+    #veg-offline-planner-v2 .climate-history { fill: none; stroke: var(--viz-series-1); stroke-width: 2; }
+    #veg-offline-planner-v2 .climate-trend { fill: none; stroke: var(--muted-foreground); stroke-width: 1; stroke-dasharray: 5 4; }
+    #veg-offline-planner-v2 .climate-projection-low { fill: none; stroke: var(--viz-series-2); stroke-width: 2; stroke-dasharray: 6 4; }
+    #veg-offline-planner-v2 .climate-projection-high { fill: none; stroke: var(--viz-series-5); stroke-width: 2; stroke-dasharray: 3 4; }
+    #veg-offline-planner-v2 .climate-point-low { fill: var(--viz-series-2); }
+    #veg-offline-planner-v2 .climate-point-high { fill: var(--viz-series-5); }
+    #veg-offline-planner-v2 .climate-future-zone { fill: color-mix(in srgb, var(--muted) 28%, transparent); }
+    #veg-offline-planner-v2 .climate-label { fill: var(--muted-foreground); }
+    #veg-offline-planner-v2 .climate-stats { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+    #veg-offline-planner-v2 .monthly-temps { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; }
+    #veg-offline-planner-v2 .temp-cell {
+      display: grid; gap: 2px; text-align: center; padding: 5px 2px;
+      border-bottom: 2px solid color-mix(in srgb, var(--viz-series-1) var(--heat), var(--border));
+    }
+    #veg-offline-planner-v2 .temp-cell.is-active { background: var(--accent); color: var(--accent-foreground); }
+    #veg-offline-planner-v2 .style-summary { display: grid; gap: 7px; padding-block: 2px; }
+    #veg-offline-planner-v2 .principles { display: flex; flex-wrap: wrap; gap: 6px; }
+    #veg-offline-planner-v2 .lunar-head,
+    #veg-offline-planner-v2 .lunar-selected {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    #veg-offline-planner-v2 .lunar-year { min-width: 130px; }
+    #veg-offline-planner-v2 .lunar-legend { display: flex; flex-wrap: wrap; gap: 7px 12px; align-items: center; }
+    #veg-offline-planner-v2 .lunar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; }
+    #veg-offline-planner-v2 .lunar-weekday { text-align: center; color: var(--muted-foreground); padding: 4px 0; }
+    #veg-offline-planner-v2 .lunar-blank { min-height: 54px; }
+    #veg-offline-planner-v2 .lunar-day {
+      min-height: 54px; padding: 5px 3px; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 3px;
+      border: 1px solid color-mix(in srgb, var(--border) 68%, transparent); border-radius: 7px;
+      background: color-mix(in srgb, var(--muted) 18%, transparent); color: var(--foreground); cursor: pointer;
+    }
+    #veg-offline-planner-v2 .lunar-day.is-recommended { border-color: var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 12%, transparent); }
+    #veg-offline-planner-v2 .lunar-day.is-selected { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 18%, transparent); }
+    #veg-offline-planner-v2 .lunar-date { font-weight: 500; }
+    #veg-offline-planner-v2 .moon-glyph { justify-self: end; }
+    #veg-offline-planner-v2 .lunar-age { grid-column: 1 / -1; font-size: 10px; color: var(--muted-foreground); }
+    #veg-offline-planner-v2 .lunar-day.is-broad-sowing { box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--viz-series-2) 68%, transparent); }
+    #veg-offline-planner-v2 .lunar-mark { grid-column: 1 / -1; color: var(--muted-foreground); }
+    #veg-offline-planner-v2 .note,
+    #veg-offline-planner-v2 .legend,
+    #veg-offline-planner-v2 .chips,
+    #veg-offline-planner-v2 .method-line { display: flex; flex-wrap: wrap; gap: 7px 10px; align-items: center; }
+    #veg-offline-planner-v2 .legend-item,
+    #veg-offline-planner-v2 .chip { display: inline-flex; align-items: center; gap: 5px; }
+    #veg-offline-planner-v2 .dot {
+      width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto;
+      background: var(--dot-color);
+    }
+    #veg-offline-planner-v2 .summary-grid {
+      display: grid; grid-template-columns: minmax(220px, .95fr) minmax(250px, 1.05fr); gap: 12px;
+    }
+    #veg-offline-planner-v2 .card { display: grid; gap: 8px; }
+    #veg-offline-planner-v2 .summary-head {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    #veg-offline-planner-v2 .summary-name { font-weight: 500; }
+    #veg-offline-planner-v2 .tips { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+    #veg-offline-planner-v2 .month-list { display: grid; gap: 4px; }
+    #veg-offline-planner-v2 .month-item {
+      display: grid; grid-template-columns: minmax(92px, .5fr) minmax(150px, 1fr);
+      gap: 8px; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+    }
+    #veg-offline-planner-v2 .month-item:last-child { border-bottom: 0; }
+    #veg-offline-planner-v2 .timeline { display: grid; gap: 3px; width: 100%; }
+    #veg-offline-planner-v2 .timeline-row {
+      display: grid; grid-template-columns: minmax(92px, 1.45fr) repeat(12, minmax(18px, 1fr)); gap: 3px;
+    }
+    #veg-offline-planner-v2 .month-head,
+    #veg-offline-planner-v2 .row-head,
+    #veg-offline-planner-v2 .month-cell { min-width: 0; }
+    #veg-offline-planner-v2 .month-head { text-align: center; color: var(--muted-foreground); padding: 5px 0; }
+    #veg-offline-planner-v2 .row-head {
+      display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px; align-items: center; padding: 5px 3px; color: var(--foreground);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    }
+    #veg-offline-planner-v2 .row-code { color: var(--muted-foreground); white-space: nowrap; }
+    #veg-offline-planner-v2 .crop-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+    #veg-offline-planner-v2 .start-summary { display: grid; gap: 7px; }
+    #veg-offline-planner-v2 .route {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 5px;
+    }
+    #veg-offline-planner-v2 .route-node {
+      padding: 5px 8px; border: 1px solid color-mix(in srgb, var(--border) 72%, transparent); border-radius: 7px;
+      background: color-mix(in srgb, var(--viz-series-1) 12%, transparent); color: var(--foreground);
+    }
+    #veg-offline-planner-v2 .route-arrow { color: var(--muted-foreground); }
+    #veg-offline-planner-v2 .method-key { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+    #veg-offline-planner-v2 .method-code { font-weight: 500; color: var(--foreground); }
+    #veg-offline-planner-v2 .month-cell {
+      min-height: 34px; padding: 4px 2px; display: grid; place-items: center; cursor: pointer;
+      border: 1px solid color-mix(in srgb, var(--border) 64%, transparent); border-radius: 7px;
+      background: color-mix(in srgb, var(--muted) 22%, transparent);
+    }
+    #veg-offline-planner-v2 .month-cell:hover,
+    #veg-offline-planner-v2 .month-cell:focus-visible { background: var(--accent); color: var(--accent-foreground); }
+    #veg-offline-planner-v2 .month-cell.is-selected { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 18%, transparent); }
+    #veg-offline-planner-v2 .month-cell.is-active-month { box-shadow: inset 0 -2px 0 var(--primary); }
+    #veg-offline-planner-v2 .cell-dots { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; }
+    #veg-offline-planner-v2 .cell-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--dot-color); }
+    #veg-offline-planner-v2 .empty-dot { width: 5px; height: 5px; border-radius: 50%; background: color-mix(in srgb, var(--muted-foreground) 25%, transparent); }
+    @media (max-width: 640px) {
+      #veg-offline-planner-v2 .control-grid,
+      #veg-offline-planner-v2 .summary-grid { grid-template-columns: 1fr; }
+      #veg-offline-planner-v2 .monthly-temps { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      #veg-offline-planner-v2 .timeline-row { grid-template-columns: minmax(88px, 1.4fr) repeat(12, minmax(15px, 1fr)); gap: 2px; }
+      #veg-offline-planner-v2 .month-cell { min-height: 30px; padding: 3px 1px; border-radius: 5px; }
+      #veg-offline-planner-v2 .cell-dot { width: 6px; height: 6px; }
+      #veg-offline-planner-v2 .month-item { grid-template-columns: 1fr; }
+      #veg-offline-planner-v2 .lunar-day { min-height: 48px; padding: 4px 2px; }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;stack&quot;&gt;
+    &lt;div class=&quot;climate-head&quot;&gt;
+      &lt;span class=&quot;summary-name&quot;&gt;京丹波町周辺の気温&lt;/span&gt;
+      &lt;span class=&quot;viz-badge&quot;&gt;美山アメダス・標高200mを近隣指標に使用&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;svg class=&quot;climate-chart&quot; id=&quot;kyotoClimateChart&quot; viewBox=&quot;0 0 700 250&quot; role=&quot;img&quot; aria-label=&quot;美山アメダスの1979年から2025年までの年平均気温と京都府の21世紀末予測&quot;&gt;
+      &lt;title&gt;京丹波町周辺の年平均気温の推移と将来シナリオ&lt;/title&gt;
+      &lt;desc&gt;美山アメダスの観測値と、京都府の21世紀末の気温上昇予測を組み合わせた図です。&lt;/desc&gt;
+    &lt;/svg&gt;
+    &lt;div class=&quot;climate-stats text-small&quot; id=&quot;kyotoClimateStats&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;monthly-temps text-small&quot; id=&quot;kyotoMonthlyTemps&quot; aria-label=&quot;美山の月別平年気温&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;note text-small&quot;&gt;
+      &lt;span class=&quot;text-muted&quot;&gt;観測: 気象庁 美山 1979–2025（47年分）。将来値は美山平年13.0℃に京都府予測の上昇量を加えた地域目安です。&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;control-grid&quot;&gt;
+      &lt;label class=&quot;form-label text-small&quot;&gt;野菜を選ぶ&lt;select class=&quot;form-select&quot; id=&quot;veg2Crop&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+      &lt;label class=&quot;form-label text-small&quot;&gt;月を選ぶ&lt;select class=&quot;form-select&quot; id=&quot;veg2Month&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+      &lt;label class=&quot;form-label text-small&quot;&gt;分類&lt;select class=&quot;form-select&quot; id=&quot;veg2Group&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+      &lt;label class=&quot;form-label text-small&quot;&gt;自然農の考え方&lt;select class=&quot;form-select&quot; id=&quot;veg2Style&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;note text-small&quot;&gt;
+      &lt;span class=&quot;viz-badge&quot;&gt;京丹波町・露地向け&lt;/span&gt;
+      &lt;span class=&quot;text-muted&quot;&gt;暖地基準より春の定植を遅め、秋冬野菜の種まきをやや早めに判断します。畑の標高・谷風・霜で前後します。&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;style-summary&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;div class=&quot;style-head&quot;&gt;&lt;span class=&quot;summary-name&quot; id=&quot;veg2StyleTitle&quot;&gt;&lt;/span&gt;&lt;span class=&quot;viz-badge&quot; id=&quot;veg2StyleSource&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;principles text-small&quot; id=&quot;veg2StylePrinciples&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;text-small&quot; id=&quot;veg2StyleMonthTip&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;lunar-head&quot;&gt;
+      &lt;span class=&quot;summary-name&quot; id=&quot;veg2LunarTitle&quot;&gt;月の暦&lt;/span&gt;
+      &lt;label class=&quot;form-label text-small lunar-year&quot;&gt;年&lt;select class=&quot;form-select&quot; id=&quot;veg2LunarYear&quot;&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;lunar-legend text-small&quot;&gt;
+      &lt;span&gt;🌑 新月&lt;/span&gt;&lt;span&gt;🌓 上弦&lt;/span&gt;&lt;span&gt;🌕 満月&lt;/span&gt;&lt;span&gt;🌗 下弦&lt;/span&gt;
+      &lt;span class=&quot;viz-badge&quot;&gt;枠色＝選択野菜と伝統的目安が一致&lt;/span&gt;
+      &lt;span class=&quot;viz-badge&quot;&gt;下線＝月齢0～18の広い播種候補帯&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;lunar-grid text-small&quot; id=&quot;veg2LunarCalendar&quot; role=&quot;grid&quot; aria-label=&quot;月の満ち欠けカレンダー&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;lunar-selected text-small&quot; id=&quot;veg2LunarSelected&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;note text-small&quot;&gt;
+      &lt;span class=&quot;viz-badge&quot;&gt;月相時刻は国立天文台・中央標準時&lt;/span&gt;
+      &lt;span class=&quot;text-muted&quot;&gt;月齢0～18の播種帯と作物別表示は、月相栽培の経験的な補助目安です。科学レビューでは一律の収量向上を支持する根拠は確立していません。品種の適期、地温、水分、霜、天候を優先し、実際の発芽率と生育を記録して比較します。&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;legend text-small&quot; id=&quot;veg2Legend&quot; aria-label=&quot;作業区分の凡例&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;legend text-small&quot; id=&quot;veg2MethodLegend&quot; aria-label=&quot;始め方と栽培年数の凡例&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;summary-grid&quot;&gt;
+      &lt;section class=&quot;card&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;div class=&quot;summary-head&quot;&gt;&lt;span class=&quot;summary-name&quot; id=&quot;veg2SelectedName&quot;&gt;&lt;/span&gt;&lt;span class=&quot;viz-badge&quot; id=&quot;veg2SelectedGroup&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;start-summary&quot;&gt;
+          &lt;div class=&quot;method-line text-small&quot;&gt;&lt;span class=&quot;viz-badge&quot; id=&quot;veg2Start&quot;&gt;&lt;/span&gt;&lt;span class=&quot;viz-badge&quot; id=&quot;veg2Life&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;route text-small&quot; id=&quot;veg2Route&quot; aria-label=&quot;栽培の始め方&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;text-small&quot; id=&quot;veg2MethodTip&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;chips text-small&quot; id=&quot;veg2SelectedPhases&quot;&gt;&lt;/div&gt;
+        &lt;ul class=&quot;tips text-small&quot; id=&quot;veg2Tips&quot;&gt;&lt;/ul&gt;
+      &lt;/section&gt;
+      &lt;section class=&quot;card&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;div class=&quot;summary-head&quot;&gt;&lt;span class=&quot;summary-name&quot; id=&quot;veg2MonthTitle&quot;&gt;&lt;/span&gt;&lt;span class=&quot;viz-badge&quot; id=&quot;veg2Count&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;month-list text-small&quot; id=&quot;veg2MonthList&quot;&gt;&lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;timeline text-small&quot; id=&quot;veg2Timeline&quot; role=&quot;grid&quot; aria-label=&quot;1月から12月までの野菜別作業カレンダー&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&quot;veg-offline-planner-v2&quot;);
+      const months = Array.from({ length: 12 }, (_, i) =&gt; `${i + 1}月`);
+      const groups = [&quot;すべて&quot;, &quot;畑全体&quot;, &quot;果菜・瓜類&quot;, &quot;葉菜・花蕾類&quot;, &quot;根菜・いも類&quot;, &quot;豆類&quot;, &quot;香味・多年草&quot;];
+      const meta = {
+        soil: { label: &quot;畝観察・土の手当て&quot;, short: &quot;土&quot;, color: &quot;var(--p-soil)&quot; },
+        seed: { label: &quot;種まき&quot;, short: &quot;種&quot;, color: &quot;var(--p-seed)&quot; },
+        nursery: { label: &quot;育苗&quot;, short: &quot;苗&quot;, color: &quot;var(--p-nursery)&quot; },
+        plant: { label: &quot;植え付け・定植&quot;, short: &quot;植&quot;, color: &quot;var(--p-plant)&quot; },
+        care: { label: &quot;草管理・誘引・観察&quot;, short: &quot;管&quot;, color: &quot;var(--p-care)&quot; },
+        harvest: { label: &quot;収穫&quot;, short: &quot;収&quot;, color: &quot;var(--p-harvest)&quot; },
+        clean: { label: &quot;刈り倒し・根を残す&quot;, short: &quot;片&quot;, color: &quot;var(--p-clean)&quot; }
+      };
+      const phaseTips = {
+        soil: &quot;畝全体はむやみに耕さず、草と土の湿りを観察します。裸地には刈草・落ち葉を薄く戻します。&quot;,
+        seed: &quot;まき筋だけ草を刈って表土を浅く開き、種と土を密着させます。発芽までは乾かさず、厚い草は発芽後に寄せます。&quot;,
+        nursery: &quot;京丹波の春は冷えるため、果菜類は保温育苗か購入苗が安定します。水と肥料で急成長させず、締まった苗を作ります。&quot;,
+        plant: &quot;畝を全面耕起せず、植え穴だけを開けます。活着後に刈草を寄せ、株元へ直接触れさせません。&quot;,
+        care: &quot;草は抜き切らず、野菜より高くなる前に地際で刈って敷きます。虫食いは株の勢い・混み合い・水分の偏りも確認します。&quot;,
+        harvest: &quot;若採りで株を疲れさせず、食べない葉や茎は病気が強くなければ畝へ戻します。&quot;,
+        clean: &quot;地上部は地際で切り、根は土中に残します。強い病気の残さだけ畑外へ出し、次作は科をずらします。&quot;
+      };
+      const climateHistory = [
+        [1979,12.7],[1980,11.6],[1981,10.3],[1982,12.2],[1983,12.8],[1984,12.0],[1985,13.0],[1986,12.3],[1987,13.1],[1988,12.0],
+        [1989,12.9],[1990,13.7],[1991,13.2],[1992,12.9],[1993,12.4],[1994,13.3],[1995,12.2],[1996,12.1],[1997,12.9],[1998,14.0],
+        [1999,13.2],[2000,13.1],[2001,12.8],[2002,13.3],[2003,13.0],[2004,13.9],[2005,12.9],[2006,13.1],[2007,13.5],[2008,12.9],
+        [2009,13.0],[2010,13.4],[2011,12.8],[2012,12.5],[2013,12.8],[2014,12.4],[2015,13.1],[2016,13.6],[2017,12.4],[2018,13.5],
+        [2019,13.5],[2020,13.6],[2021,13.5],[2022,13.4],[2023,14.3],[2024,14.7],[2025,14.4]
+      ];
+      const monthlyNormal = [1.7,2.1,5.6,11.1,16.2,20.3,24.3,25.2,21.2,15.1,9.4,4.2];
+      const climateTips = {
+        1: &quot;土が凍る時期。掘り返さず、雪解け水の流れと越冬株の傷みを観察します。&quot;,
+        2: &quot;果菜類は室内で保温育苗。畑では刈草・落ち葉を補い、春の作付けを決めます。&quot;,
+        3: &quot;寒さに強い葉物・根菜から直播。暖地用の暦だけで夏野菜を早植えしません。&quot;,
+        4: &quot;平均気温は上がっても遅霜に注意。夏野菜は育苗を続け、畑では春草を刈って敷きます。&quot;,
+        5: &quot;地温と最低気温を見て果菜類を定植。前半は不織布など霜よけを準備します。&quot;,
+        6: &quot;梅雨は乾燥より排水を優先。草マルチを厚くし過ぎず、ナメクジと蒸れを観察します。&quot;,
+        7: &quot;高温多湿期。朝夕に収穫し、草を地際で刈って土を覆い、風通しを確保します。&quot;,
+        8: &quot;乾燥時は回数より一度に深く水やり。秋冬野菜は遮光した苗床で育苗を始めます。&quot;,
+        9: &quot;残暑で発芽しにくい時は日陰育苗。冬までに育てる作物は遅まきを避けます。&quot;,
+        10: &quot;気温低下が早い地域。豆類・ニンニク・多年草を植え、夏野菜は根を残して刈ります。&quot;,
+        11: &quot;霜が増える時期。種採り株を選び、裸地を刈草と落ち葉で覆います。&quot;,
+        12: &quot;地上部を整理して根を残し、排水路・支柱・種を点検。冬の間は土を休ませます。&quot;
+      };
+      const styleMeta = {
+        integrated: {
+          label: &quot;統合型（竹内孝功さんを中心に）&quot;, source: &quot;自然菜園＋自然農＋菌ちゃんの使い分け&quot;,
+          principles: [&quot;不耕起中心&quot;, &quot;刈草マルチ&quot;, &quot;混植・輪作&quot;, &quot;草で土を読む&quot;, &quot;畝ごとに方式を固定&quot;],
+          month: {
+            1:&quot;前年の草・生育・虫を記録し、連作を避ける組み合わせを決めます。&quot;,2:&quot;夏野菜は締まった苗づくり。通路の緑肥や草マルチ源も計画します。&quot;,3:&quot;まき筋と植え穴だけを開き、畝面は極力動かしません。&quot;,4:&quot;春草は野菜が負ける前に刈って敷き、土を裸にしません。&quot;,5:&quot;果菜類と香味野菜・豆類を組み合わせ、単植を減らします。&quot;,6:&quot;草マルチは蒸れない厚さで更新し、雨水の出口を確保します。&quot;,7:&quot;草を敵にせず高さを調整し、刈った草を畝へ戻します。&quot;,8:&quot;日陰・草マルチ・深い水やりで高温乾燥をしのぎます。&quot;,9:&quot;夏野菜は抜かずに刈り、秋冬野菜へ場所と根穴を引き継ぎます。&quot;,10:&quot;豆・ネギ・多年草を組み合わせ、冬も生きた根を残します。&quot;,11:&quot;自家採種する株を選び、落ち葉を薄く重ねます。&quot;,12:&quot;結果を記録し、畝を休ませながら翌年の混植・輪作を組みます。&quot;
+          }
+        },
+        takeuchi: {
+          label: &quot;竹内孝功さん・自然菜園&quot;, source: &quot;草マルチ・緑肥・混植・輪作&quot;,
+          principles: [&quot;草を刈って敷く&quot;, &quot;通路に緑肥&quot;, &quot;コンパニオンプランツ&quot;, &quot;連作を避ける&quot;, &quot;適地適作&quot;],
+          month: {
+            1:&quot;輪作表と混植相手を決め、草の種類から畑の状態を振り返ります。&quot;,2:&quot;苗づくりを始め、通路にまく緑肥も準備します。&quot;,3:&quot;野菜が自立するまで競合する草を刈り、敷草へ回します。&quot;,4:&quot;草の勢いと土の湿りを見て、刈草の量を調整します。&quot;,5:&quot;果菜類の株元を空け、周囲へ草マルチを広げます。&quot;,6:&quot;通路の緑肥と草を刈り、梅雨の泥はねと乾燥を抑えます。&quot;,7:&quot;草丈を野菜より低く保ち、土を常に覆います。&quot;,8:&quot;秋苗の場所だけ草をよけ、発芽後に薄く戻します。&quot;,9:&quot;科の違う野菜へつなぎ、混植で空間を埋めます。&quot;,10:&quot;越冬野菜と緑肥で生きた根を切らしません。&quot;,11:&quot;刈草・落ち葉を補い、土の表面を守ります。&quot;,12:&quot;草の変化と収量を記録し、翌年の適地適作へ反映します。&quot;
+          }
+        },
+        kawaguchi: {
+          label: &quot;川口由一さん・自然農&quot;, source: &quot;耕さず・持ち込まず・草虫を敵としない&quot;,
+          principles: [&quot;耕さない&quot;, &quot;肥料・農薬を持ち込まない&quot;, &quot;草・虫を敵としない&quot;, &quot;根を残す&quot;],
+          month: {
+            1:&quot;手を加える前に畑の水・草・枯れ方を観察します。&quot;,2:&quot;必要な場所の草だけ刈り、土をむき出しにしません。&quot;,3:&quot;まき筋だけ表土を開き、畝全体を耕しません。&quot;,4:&quot;作物へ覆いかぶさる草を地際で刈り、その場へ戻します。&quot;,5:&quot;植え穴だけを開け、周囲の根と土の層を保ちます。&quot;,6:&quot;虫食いを即座に排除せず、株の弱りと環境の偏りを見ます。&quot;,7:&quot;草と作物の高さを調整し、共存できる光量をつくります。&quot;,8:&quot;乾燥時も裸地にせず、刈草で水分を保ちます。&quot;,9:&quot;前作を抜かず地際で刈り、根を次作へ残します。&quot;,10:&quot;冬越し作物の周囲だけ草を整えます。&quot;,11:&quot;枯草と落ち葉をその場へ返し、持ち出しを減らします。&quot;,12:&quot;大きく動かさず、冬の畑を観察して待ちます。&quot;
+          }
+        },
+        fukuoka: {
+          label: &quot;福岡正信さん・自然農法&quot;, source: &quot;不耕起・無肥料・無除草・無農薬&quot;,
+          principles: [&quot;不耕起&quot;, &quot;無肥料&quot;, &quot;無除草&quot;, &quot;無農薬&quot;, &quot;介入を引き算&quot;],
+          month: {
+            1:&quot;前年に必要だった作業を振り返り、減らせる介入を一つ決めます。&quot;,2:&quot;土地に合う種を選び、被覆植物と同時に計画します。&quot;,3:&quot;土を反転せず、種が土へ触れる最小限の手当てにします。&quot;,4:&quot;草を一律に除かず、作物の発芽を妨げる場所だけ調整します。&quot;,5:&quot;水・肥料で急成長させず、その土地へ順応する株を残します。&quot;,6:&quot;病害虫だけを見ず、過密・単植・水分偏りを減らします。&quot;,7:&quot;土を覆う草を残し、必要な分だけ刈ります。&quot;,8:&quot;水やり回数を増やす前に被覆と根張りを見直します。&quot;,9:&quot;採種しやすい健康な株を残し、地域適応を重ねます。&quot;,10:&quot;抜かず・焼かず・持ち出さずを基本に有機物を循環させます。&quot;,11:&quot;越冬する草と作物で土を覆います。&quot;,12:&quot;何もしないのではなく、不要な作業を見極めます。&quot;
+          }
+        },
+        kinchan: {
+          label: &quot;吉田俊道さん・菌ちゃん農法&quot;, source: &quot;高畝・木質資材・糸状菌&quot;,
+          principles: [&quot;排水のよい高畝&quot;, &quot;枝・竹・木チップ・落ち葉&quot;, &quot;糸状菌を育てる&quot;, &quot;仕込み後2〜3か月待つ&quot;, &quot;原則無肥料&quot;],
+          month: {
+            1:&quot;春植え用なら枝・竹・落ち葉など地域の木質資材を集めます。&quot;,2:&quot;排水を確認して高畝を仕込み、木質資材と土をなじませます。&quot;,3:&quot;畝を乾かし過ぎず過湿にもせず、糸状菌が広がる時間を取ります。&quot;,4:&quot;白い菌糸と土の香りを確認し、未熟な畝へ急いで植えません。&quot;,5:&quot;十分に熟成した畝へ定植し、根が木質層へ伸びる環境を守ります。&quot;,6:&quot;京丹波の梅雨は畝間排水を最優先。水没させません。&quot;,7:&quot;畝を掘り返さず、表面を草や有機物で覆います。&quot;,8:&quot;乾燥時は高畝内部まで届くよう深く水を入れます。&quot;,9:&quot;翌春用の畝はこの時期から仕込むと待ち時間を確保できます。&quot;,10:&quot;落ち葉・剪定枝・竹を集め、畝の補修へ使います。&quot;,11:&quot;収穫後も根と木質層を残し、畝を壊しません。&quot;,12:&quot;排水と畝高を点検し、雪解け水が滞留しない形に整えます。&quot;
+          }
+        }
+      };
+      const M = (year, month, day, type, time) =&gt; ({ year, month, day, type, time });
+      const moonEvents = [
+        M(2025,12,20,&quot;new&quot;,&quot;10:43&quot;), M(2025,12,28,&quot;first&quot;,&quot;04:10&quot;),
+        M(2026,1,3,&quot;full&quot;,&quot;19:03&quot;), M(2026,1,11,&quot;last&quot;,&quot;00:48&quot;), M(2026,1,19,&quot;new&quot;,&quot;04:52&quot;), M(2026,1,26,&quot;first&quot;,&quot;13:47&quot;),
+        M(2026,2,2,&quot;full&quot;,&quot;07:09&quot;), M(2026,2,9,&quot;last&quot;,&quot;21:43&quot;), M(2026,2,17,&quot;new&quot;,&quot;21:01&quot;), M(2026,2,24,&quot;first&quot;,&quot;21:28&quot;),
+        M(2026,3,3,&quot;full&quot;,&quot;20:38&quot;), M(2026,3,11,&quot;last&quot;,&quot;18:39&quot;), M(2026,3,19,&quot;new&quot;,&quot;10:23&quot;), M(2026,3,26,&quot;first&quot;,&quot;04:18&quot;),
+        M(2026,4,2,&quot;full&quot;,&quot;11:12&quot;), M(2026,4,10,&quot;last&quot;,&quot;13:52&quot;), M(2026,4,17,&quot;new&quot;,&quot;20:52&quot;), M(2026,4,24,&quot;first&quot;,&quot;11:32&quot;),
+        M(2026,5,2,&quot;full&quot;,&quot;02:23&quot;), M(2026,5,10,&quot;last&quot;,&quot;06:10&quot;), M(2026,5,17,&quot;new&quot;,&quot;05:01&quot;), M(2026,5,23,&quot;first&quot;,&quot;20:11&quot;), M(2026,5,31,&quot;full&quot;,&quot;17:45&quot;),
+        M(2026,6,8,&quot;last&quot;,&quot;19:01&quot;), M(2026,6,15,&quot;new&quot;,&quot;11:54&quot;), M(2026,6,22,&quot;first&quot;,&quot;06:55&quot;), M(2026,6,30,&quot;full&quot;,&quot;08:57&quot;),
+        M(2026,7,8,&quot;last&quot;,&quot;04:29&quot;), M(2026,7,14,&quot;new&quot;,&quot;18:44&quot;), M(2026,7,21,&quot;first&quot;,&quot;20:06&quot;), M(2026,7,29,&quot;full&quot;,&quot;23:36&quot;),
+        M(2026,8,6,&quot;last&quot;,&quot;11:21&quot;), M(2026,8,13,&quot;new&quot;,&quot;02:37&quot;), M(2026,8,20,&quot;first&quot;,&quot;11:46&quot;), M(2026,8,28,&quot;full&quot;,&quot;13:19&quot;),
+        M(2026,9,4,&quot;last&quot;,&quot;16:51&quot;), M(2026,9,11,&quot;new&quot;,&quot;12:27&quot;), M(2026,9,19,&quot;first&quot;,&quot;05:44&quot;), M(2026,9,27,&quot;full&quot;,&quot;01:49&quot;),
+        M(2026,10,3,&quot;last&quot;,&quot;22:25&quot;), M(2026,10,11,&quot;new&quot;,&quot;00:50&quot;), M(2026,10,19,&quot;first&quot;,&quot;01:13&quot;), M(2026,10,26,&quot;full&quot;,&quot;13:12&quot;),
+        M(2026,11,2,&quot;last&quot;,&quot;05:28&quot;), M(2026,11,9,&quot;new&quot;,&quot;16:02&quot;), M(2026,11,17,&quot;first&quot;,&quot;20:48&quot;), M(2026,11,24,&quot;full&quot;,&quot;23:54&quot;),
+        M(2026,12,1,&quot;last&quot;,&quot;15:09&quot;), M(2026,12,9,&quot;new&quot;,&quot;09:52&quot;), M(2026,12,17,&quot;first&quot;,&quot;14:43&quot;), M(2026,12,24,&quot;full&quot;,&quot;10:28&quot;), M(2026,12,31,&quot;last&quot;,&quot;03:59&quot;),
+        M(2027,1,8,&quot;new&quot;,&quot;05:24&quot;), M(2027,1,16,&quot;first&quot;,&quot;05:35&quot;), M(2027,1,22,&quot;full&quot;,&quot;21:17&quot;), M(2027,1,29,&quot;last&quot;,&quot;19:55&quot;),
+        M(2027,2,7,&quot;new&quot;,&quot;00:56&quot;), M(2027,2,14,&quot;first&quot;,&quot;16:58&quot;), M(2027,2,21,&quot;full&quot;,&quot;08:24&quot;), M(2027,2,28,&quot;last&quot;,&quot;14:17&quot;),
+        M(2027,3,8,&quot;new&quot;,&quot;18:29&quot;), M(2027,3,16,&quot;first&quot;,&quot;01:25&quot;), M(2027,3,22,&quot;full&quot;,&quot;19:44&quot;), M(2027,3,30,&quot;last&quot;,&quot;09:54&quot;),
+        M(2027,4,7,&quot;new&quot;,&quot;08:51&quot;), M(2027,4,14,&quot;first&quot;,&quot;07:57&quot;), M(2027,4,21,&quot;full&quot;,&quot;07:27&quot;), M(2027,4,29,&quot;last&quot;,&quot;05:18&quot;),
+        M(2027,5,6,&quot;new&quot;,&quot;19:59&quot;), M(2027,5,13,&quot;first&quot;,&quot;13:44&quot;), M(2027,5,20,&quot;full&quot;,&quot;19:59&quot;), M(2027,5,28,&quot;last&quot;,&quot;22:58&quot;),
+        M(2027,6,5,&quot;new&quot;,&quot;04:40&quot;), M(2027,6,11,&quot;first&quot;,&quot;19:56&quot;), M(2027,6,19,&quot;full&quot;,&quot;09:44&quot;), M(2027,6,27,&quot;last&quot;,&quot;13:54&quot;),
+        M(2027,7,4,&quot;new&quot;,&quot;12:02&quot;), M(2027,7,11,&quot;first&quot;,&quot;03:39&quot;), M(2027,7,19,&quot;full&quot;,&quot;00:45&quot;), M(2027,7,27,&quot;last&quot;,&quot;01:55&quot;),
+        M(2027,8,2,&quot;new&quot;,&quot;19:05&quot;), M(2027,8,9,&quot;first&quot;,&quot;13:54&quot;), M(2027,8,17,&quot;full&quot;,&quot;16:29&quot;), M(2027,8,25,&quot;last&quot;,&quot;11:27&quot;),
+        M(2027,9,1,&quot;new&quot;,&quot;02:41&quot;), M(2027,9,8,&quot;first&quot;,&quot;03:31&quot;), M(2027,9,16,&quot;full&quot;,&quot;08:04&quot;), M(2027,9,23,&quot;last&quot;,&quot;19:20&quot;), M(2027,9,30,&quot;new&quot;,&quot;11:36&quot;),
+        M(2027,10,7,&quot;first&quot;,&quot;20:47&quot;), M(2027,10,15,&quot;full&quot;,&quot;22:47&quot;), M(2027,10,23,&quot;last&quot;,&quot;02:29&quot;), M(2027,10,29,&quot;new&quot;,&quot;22:37&quot;),
+        M(2027,11,6,&quot;first&quot;,&quot;17:00&quot;), M(2027,11,14,&quot;full&quot;,&quot;12:26&quot;), M(2027,11,21,&quot;last&quot;,&quot;09:48&quot;), M(2027,11,28,&quot;new&quot;,&quot;12:24&quot;),
+        M(2027,12,6,&quot;first&quot;,&quot;14:22&quot;), M(2027,12,14,&quot;full&quot;,&quot;01:09&quot;), M(2027,12,20,&quot;last&quot;,&quot;18:11&quot;), M(2027,12,28,&quot;new&quot;,&quot;05:12&quot;)
+      ];
+      const moonMeta = {
+        new: { label: &quot;新月&quot;, icon: &quot;🌑&quot;, segment: &quot;waxingEarly&quot; },
+        first: { label: &quot;上弦&quot;, icon: &quot;🌓&quot;, segment: &quot;waxingLate&quot; },
+        full: { label: &quot;満月&quot;, icon: &quot;🌕&quot;, segment: &quot;waningEarly&quot; },
+        last: { label: &quot;下弦&quot;, icon: &quot;🌗&quot;, segment: &quot;waningLate&quot; }
+      };
+      const segmentMeta = {
+        waxingEarly: { label: &quot;新月→上弦&quot;, icon: &quot;🌒&quot;, tradition: &quot;葉物・茎物など地上部を収穫する作物の種まき&quot; },
+        waxingLate: { label: &quot;上弦→満月&quot;, icon: &quot;🌔&quot;, tradition: &quot;トマト・豆・カボチャなど実物野菜の種まき・定植&quot; },
+        waningEarly: { label: &quot;満月→下弦&quot;, icon: &quot;🌖&quot;, tradition: &quot;根菜・いも・球根・多年草の植え付け&quot; },
+        waningLate: { label: &quot;下弦→新月&quot;, icon: &quot;🌘&quot;, tradition: &quot;草刈り・剪定・収穫・畝の観察。種まきは休む期間とする流儀もある&quot; }
+      };
+      const parse = text =&gt; Object.fromEntries(text.split(&quot;;&quot;).filter(Boolean).map(part =&gt; {
+        const [month, phases] = part.split(&quot;:&quot;);
+        return [Number(month), phases.split(&quot;|&quot;)];
+      }));
+      const C = (id, name, group, schedule, tip, notes = {}) =&gt; ({ id, name, group, months: parse(schedule), tip, notes });
+      const crops = [
+        C(&quot;field&quot;, &quot;畑全体&quot;, &quot;畑全体&quot;, &quot;1:soil;2:soil;3:soil|seed;4:soil|plant;5:plant|care;6:care;7:care|harvest;8:harvest|clean;9:clean|soil|seed;10:plant|soil;11:clean|soil;12:clean|soil&quot;, &quot;輪作表、種の在庫、支柱・ネット、防虫資材を月ごとに記録すると翌年が楽になります。&quot;, {
+          1: &quot;寒起こしと天地返し。春夏野菜の区画を決め、ナス科・ウリ科・マメ科の連作を避けます。&quot;,
+          3: &quot;排水路を確認し、春まき畝を作ります。未熟な堆肥は使わないようにします。&quot;,
+          5: &quot;定植期。仮支柱、敷きわら、ネキリムシ対策まで一緒に済ませます。&quot;,
+          7: &quot;収穫と同時に病葉を除き、朝夕に作業します。乾燥時は株元へ深く水やりします。&quot;,
+          9: &quot;夏野菜を片付け、秋冬野菜の畝へ切り替えます。台風前に支柱を補強します。&quot;,
+          12: &quot;残さ・資材・種を整理し、土壌改良と翌年の作付け計画を進めます。&quot;
+        }),
+
+        C(&quot;tomato&quot;, &quot;トマト&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care;7:care|harvest;8:care|harvest;9:harvest|clean;10:clean&quot;, &quot;雨よけと適度な水分管理で裂果を減らします。窒素過多は葉ばかり茂る原因です。&quot;, {5: &quot;最初の花房が見えた苗を、花房が通路側へ向くように定植します。&quot;, 6: &quot;わき芽かきと誘引を週1回。作業は晴れた午前中に行います。&quot;}),
+        C(&quot;eggplant&quot;, &quot;ナス&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care|harvest;7:care|harvest;8:care|harvest;9:care|harvest;10:harvest|clean&quot;, &quot;水と肥料を好みます。乾燥させると実が硬くなり、ハダニも増えやすくなります。&quot;, {7: &quot;勢いが落ちた株は更新剪定と根切りを行い、追肥して秋ナスへつなげます。&quot;}),
+        C(&quot;cucumber&quot;, &quot;キュウリ&quot;, &quot;果菜・瓜類&quot;, &quot;3:seed|nursery;4:soil|seed|nursery;5:plant|care;6:care|harvest;7:care|harvest;8:seed|care|harvest;9:harvest|clean;10:clean&quot;, &quot;根が浅いので乾燥と肥切れに弱い野菜です。小さめでこまめに収穫します。&quot;, {5: &quot;定植前にネットを張り、株元をマルチで保湿します。&quot;, 8: &quot;秋どりは7〜8月のずらしまき。うどんこ病の葉は早めに除きます。&quot;}),
+        C(&quot;sweet-pepper&quot;, &quot;ピーマン&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care|harvest;7:care|harvest;8:care|harvest;9:care|harvest;10:harvest|clean;11:clean&quot;, &quot;一番果は若採りし、細い枝と内向き枝を整理して株の中心へ光を入れます。&quot;),
+        C(&quot;chili&quot;, &quot;トウガラシ&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care;7:care|harvest;8:care|harvest;9:harvest;10:harvest|clean;11:clean&quot;, &quot;完熟果は赤く色づいてから収穫します。辛味種の手入れ後は手を洗い、目や顔に触れないようにします。&quot;, {9: &quot;乾燥用は晴天が続く日に収穫し、風通しのよい日陰で十分に乾かします。&quot;}),
+        C(&quot;shishito&quot;, &quot;シシトウ&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care|harvest;7:care|harvest;8:care|harvest;9:care|harvest;10:harvest|clean&quot;, &quot;水切れや肥料切れなど強いストレスで辛い実が増えることがあります。小さめに収穫します。&quot;),
+        C(&quot;paprika&quot;, &quot;パプリカ&quot;, &quot;果菜・瓜類&quot;, &quot;2:seed|nursery;3:nursery;4:soil|nursery;5:plant|care;6:care;7:care|harvest;8:care|harvest;9:harvest;10:harvest|clean&quot;, &quot;着色まで時間がかかるため、枝を支え、日焼けを防ぐ程度に葉を残します。&quot;),
+        C(&quot;okra&quot;, &quot;オクラ&quot;, &quot;果菜・瓜類&quot;, &quot;4:soil;5:seed|plant;6:care|harvest;7:care|harvest;8:care|harvest;9:harvest;10:clean&quot;, &quot;低温に弱いので十分に暖かくなってからまきます。実の下の古葉を順に整理します。&quot;),
+        C(&quot;pumpkin&quot;, &quot;カボチャ&quot;, &quot;果菜・瓜類&quot;, &quot;3:seed|nursery;4:soil|nursery;5:plant|care;6:care;7:harvest;8:harvest|clean;9:clean&quot;, &quot;朝に人工授粉すると着果が安定します。収穫後は風通しのよい場所で追熟します。&quot;),
+        C(&quot;zucchini&quot;, &quot;ズッキーニ&quot;, &quot;果菜・瓜類&quot;, &quot;3:seed|nursery;4:soil|nursery;5:plant|care;6:care|harvest;7:harvest|clean;8:clean&quot;, &quot;株元が蒸れないよう古葉を切り、受粉が不安定な時は朝に人工授粉します。&quot;),
+        C(&quot;corn&quot;, &quot;トウモロコシ&quot;, &quot;果菜・瓜類&quot;, &quot;3:soil;4:seed;5:seed|care;6:care;7:harvest;8:harvest|clean;9:clean&quot;, &quot;受粉しやすいよう1列ではなく複数列のまとまりで栽培し、アワノメイガと鳥害を早めに防ぎます。&quot;),
+        C(&quot;bitter-melon&quot;, &quot;ゴーヤー&quot;, &quot;果菜・瓜類&quot;, &quot;4:seed|nursery;5:soil|plant|care;6:care;7:care|harvest;8:care|harvest;9:harvest|clean;10:clean&quot;, &quot;つるを広げて風通しを確保し、初期に摘芯すると子づるが増えて収量が安定します。&quot;),
+        C(&quot;wax-gourd&quot;, &quot;トウガン&quot;, &quot;果菜・瓜類&quot;, &quot;4:seed|nursery;5:soil|plant;6:care;7:care;8:harvest;9:harvest|clean;10:clean&quot;, &quot;吸肥力が強いので元肥は控えめ。肥大中は乾燥と肥切れを避けます。&quot;),
+        C(&quot;watermelon&quot;, &quot;スイカ&quot;, &quot;果菜・瓜類&quot;, &quot;3:seed|nursery;4:nursery|soil;5:plant|care;6:care;7:harvest;8:harvest|clean&quot;, &quot;つるの本数と着果数を絞り、朝に人工授粉して日付を記録すると収穫判断がしやすくなります。&quot;),
+        C(&quot;melon&quot;, &quot;メロン&quot;, &quot;果菜・瓜類&quot;, &quot;3:seed|nursery;4:nursery|soil;5:plant|care;6:care;7:harvest;8:clean&quot;, &quot;雨よけ栽培が安定します。着果後は株の勢いを見ながら水やりを徐々に控えます。&quot;),
+        C(&quot;luffa&quot;, &quot;食用ヘチマ&quot;, &quot;果菜・瓜類&quot;, &quot;4:seed|nursery;5:plant|care;6:care;7:care;8:harvest;9:harvest;10:harvest|clean&quot;, &quot;棚を丈夫に作り、食用は繊維が硬くなる前の若い実を収穫します。&quot;),
+
+        C(&quot;lettuce&quot;, &quot;レタス&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed|nursery;3:plant|care;4:care|harvest;5:harvest|clean;8:seed|nursery;9:plant;10:care|harvest;11:harvest;12:clean&quot;, &quot;高温では発芽しにくく、乾燥で生育が止まりやすい野菜です。浅植えと防虫ネットが基本です。&quot;),
+        C(&quot;cabbage&quot;, &quot;キャベツ&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed|nursery;3:plant;4:care;5:care|harvest;6:harvest|clean;7:seed|nursery;8:nursery|plant;9:plant|care;10:care;11:harvest;12:harvest&quot;, &quot;定植直後から防虫ネットを張り、結球が始まる前に追肥と土寄せを済ませます。&quot;),
+        C(&quot;napa&quot;, &quot;ハクサイ&quot;, &quot;葉菜・花蕾類&quot;, &quot;7:soil;8:seed|nursery;9:seed|plant|care;10:care;11:harvest;12:harvest;1:harvest|clean&quot;, &quot;遅まきは結球不足になりやすいため、地域に合う品種と播種適期を守ります。&quot;),
+        C(&quot;broccoli&quot;, &quot;ブロッコリー&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed|nursery;3:plant;4:care;5:harvest;6:harvest|clean;7:seed|nursery;8:nursery|plant;9:plant|care;10:care;11:harvest;12:harvest&quot;, &quot;頂花蕾の収穫後に追肥すると、側花蕾を長く収穫できます。アオムシ対策は定植直後から。&quot;),
+        C(&quot;cauliflower&quot;, &quot;カリフラワー&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed|nursery;3:plant;4:care;5:harvest;6:clean;7:seed|nursery;8:nursery|plant;9:care;10:care;11:harvest;12:harvest&quot;, &quot;花蕾が見えたら外葉で包み、直射日光による黄ばみを防ぎます。&quot;),
+        C(&quot;komatsuna&quot;, &quot;コマツナ&quot;, &quot;葉菜・花蕾類&quot;, &quot;1:harvest;2:seed|harvest;3:seed|harvest;4:seed|harvest;5:seed|harvest;6:harvest;8:seed;9:seed|harvest;10:seed|harvest;11:seed|harvest;12:harvest&quot;, &quot;少量を2〜3週間おきにまくと切れ目なく収穫できます。春秋は防虫ネットが有効です。&quot;),
+        C(&quot;spinach&quot;, &quot;ホウレンソウ&quot;, &quot;葉菜・花蕾類&quot;, &quot;1:harvest;2:seed|harvest;3:seed|harvest;4:seed|harvest;5:harvest|clean;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;酸性土と過湿を嫌います。苦土石灰と排水を確認し、春はとう立ちしにくい品種を選びます。&quot;),
+        C(&quot;mizuna&quot;, &quot;ミズナ&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed;3:seed|harvest;4:harvest;5:clean;8:seed;9:seed|harvest;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;密植は軟らかいサラダ用、株間を広げると大株になります。害虫の多い時期はネットを使います。&quot;),
+        C(&quot;shungiku&quot;, &quot;シュンギク&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:soil;3:seed;4:seed|harvest;5:harvest;6:clean;8:soil;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;発芽には光が必要なので覆土はごく薄く。摘み取り型は脇芽を残して収穫します。&quot;),
+        C(&quot;bokchoy&quot;, &quot;チンゲンサイ&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed;3:seed|harvest;4:harvest;5:clean;8:seed;9:seed|harvest;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;生育が速いので間引きを遅らせず、株元の風通しを確保します。&quot;),
+        C(&quot;kale&quot;, &quot;ケール&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed|nursery;3:plant;4:care;5:harvest;6:harvest;7:care;8:seed|nursery;9:plant|care;10:harvest;11:harvest;12:harvest&quot;, &quot;下葉から1枚ずつ収穫し、中心の新芽を残します。青虫類を早期に確認します。&quot;),
+        C(&quot;rocket&quot;, &quot;ルッコラ&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed;3:seed|harvest;4:harvest;5:clean;8:seed;9:seed|harvest;10:harvest;11:harvest&quot;, &quot;高温期は辛味ととう立ちが強くなるため、春と秋に少量ずつまきます。&quot;),
+        C(&quot;chard&quot;, &quot;スイスチャード&quot;, &quot;葉菜・花蕾類&quot;, &quot;3:seed;4:seed|care;5:harvest;6:harvest;7:harvest;8:harvest;9:harvest;10:harvest;11:harvest;12:clean&quot;, &quot;外葉からかき取れば長く収穫できます。株元を蒸らさず、乾燥時は十分に水を与えます。&quot;),
+        C(&quot;molokhia&quot;, &quot;モロヘイヤ&quot;, &quot;葉菜・花蕾類&quot;, &quot;4:soil;5:seed|plant;6:care;7:harvest;8:harvest;9:harvest;10:clean&quot;, &quot;若い茎葉だけを収穫し、花後の実や種は食べません。摘芯して枝数を増やします。&quot;),
+        C(&quot;mustard&quot;, &quot;カラシナ・高菜&quot;, &quot;葉菜・花蕾類&quot;, &quot;2:seed;3:seed|harvest;4:harvest;5:clean;8:soil;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;若採りは葉が軟らかく、大株は漬物向き。アブラナ科なので連作と害虫に注意します。&quot;),
+
+        C(&quot;potato&quot;, &quot;ジャガイモ&quot;, &quot;根菜・いも類&quot;, &quot;1:soil;2:soil;3:plant;4:care;5:care|harvest;6:harvest|clean;8:soil;9:plant|care;10:care;11:harvest;12:harvest|clean&quot;, &quot;芽かきと土寄せでいもの緑化を防ぎます。収穫は晴天が続き土が乾いた日に行います。&quot;),
+        C(&quot;sweet-potato&quot;, &quot;サツマイモ&quot;, &quot;根菜・いも類&quot;, &quot;4:soil;5:plant;6:plant|care;7:care;8:care;9:harvest;10:harvest;11:harvest|clean&quot;, &quot;肥料が多いとつるぼけします。植え付け初期を除き水やりは控えめにします。&quot;),
+        C(&quot;taro&quot;, &quot;サトイモ&quot;, &quot;根菜・いも類&quot;, &quot;3:soil|plant;4:plant;5:care;6:care;7:care;8:care;9:care;10:harvest;11:harvest|clean&quot;, &quot;乾燥に弱いので土寄せ後に敷きわらをし、夏はたっぷり水を与えます。&quot;),
+        C(&quot;daikon&quot;, &quot;ダイコン&quot;, &quot;根菜・いも類&quot;, &quot;2:soil;3:seed;4:care;5:harvest;6:clean;8:soil;9:seed;10:care;11:harvest;12:harvest;1:harvest&quot;, &quot;直根性なので直播きします。間引きと土寄せを遅らせず、キスジノミハムシを防ぎます。&quot;),
+        C(&quot;turnip&quot;, &quot;カブ&quot;, &quot;根菜・いも類&quot;, &quot;2:soil;3:seed;4:care|harvest;5:harvest;8:soil;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;根が太る前に株間を確保し、水分変動による裂根を防ぎます。葉も食べられます。&quot;),
+        C(&quot;carrot&quot;, &quot;ニンジン&quot;, &quot;根菜・いも類&quot;, &quot;2:soil;3:seed;4:care;5:care;6:harvest;7:seed;8:seed|care;9:care;10:harvest;11:harvest;12:harvest&quot;, &quot;発芽までが勝負です。浅くまいて鎮圧し、表土を乾燥させません。未熟堆肥は又根の原因です。&quot;),
+        C(&quot;burdock&quot;, &quot;ゴボウ&quot;, &quot;根菜・いも類&quot;, &quot;2:soil;3:seed;4:seed|care;5:care;6:care;7:care;8:care;9:harvest;10:harvest;11:harvest;12:harvest&quot;, &quot;深く耕し、石と土塊を除きます。家庭菜園では短根品種や袋栽培が扱いやすいです。&quot;),
+        C(&quot;beet&quot;, &quot;ビーツ&quot;, &quot;根菜・いも類&quot;, &quot;2:soil;3:seed;4:care;5:care;6:harvest;7:harvest;8:soil;9:seed;10:care;11:harvest;12:harvest&quot;, &quot;一粒から複数芽が出る品種が多いので、早めに1本へ間引きます。&quot;),
+        C(&quot;radish&quot;, &quot;ラディッシュ&quot;, &quot;根菜・いも類&quot;, &quot;2:seed;3:seed|harvest;4:seed|harvest;5:harvest;8:seed;9:seed|harvest;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;生育が速いので、まき過ぎず少量ずつ。乾燥と採り遅れで「す」が入りやすくなります。&quot;),
+        C(&quot;yacon&quot;, &quot;ヤーコン&quot;, &quot;根菜・いも類&quot;, &quot;3:soil;4:plant;5:plant|care;6:care;7:care;8:care;9:care;10:care;11:harvest;12:harvest|clean&quot;, &quot;大株になるので広い株間を取り、霜で地上部が枯れ始めたら掘り上げます。&quot;),
+
+        C(&quot;edamame&quot;, &quot;エダマメ&quot;, &quot;豆類&quot;, &quot;4:seed;5:seed|care;6:seed|care;7:harvest;8:harvest;9:harvest|clean&quot;, &quot;鳥に種を食べられやすいので発芽まで不織布やネットで覆います。さやが太ったら早めに収穫します。&quot;),
+        C(&quot;green-bean&quot;, &quot;インゲン&quot;, &quot;豆類&quot;, &quot;4:soil|seed;5:seed|care;6:care|harvest;7:harvest;8:seed|care;9:harvest;10:harvest|clean&quot;, &quot;つるありは支柱を先に用意します。高温期は花が落ちやすいので、秋どりは時期をずらします。&quot;),
+        C(&quot;snap-pea&quot;, &quot;スナップエンドウ&quot;, &quot;豆類&quot;, &quot;1:care;2:care;3:care;4:harvest;5:harvest|clean;10:soil|seed;11:seed|care;12:care&quot;, &quot;大きくし過ぎず小苗で冬越しさせ、春に支柱とネットを整えます。&quot;),
+        C(&quot;green-pea&quot;, &quot;実エンドウ&quot;, &quot;豆類&quot;, &quot;1:care;2:care;3:care;4:harvest;5:harvest|clean;10:soil|seed;11:seed|care;12:care&quot;, &quot;連作を避け、開花からさや肥大期は乾燥させないようにします。&quot;),
+        C(&quot;fava&quot;, &quot;ソラマメ&quot;, &quot;豆類&quot;, &quot;1:care;2:care;3:care;4:care;5:harvest;6:harvest|clean;10:soil|seed;11:seed|care;12:care&quot;, &quot;アブラムシが付きやすい先端を摘芯し、さやが下向きになったら収穫します。&quot;),
+        C(&quot;peanut&quot;, &quot;落花生&quot;, &quot;豆類&quot;, &quot;4:soil;5:seed;6:care;7:care;8:care;9:harvest;10:harvest|clean&quot;, &quot;花後の子房柄が土へ入るため、株元を柔らかく保ち、開花後は土を動かし過ぎません。&quot;),
+        C(&quot;cowpea&quot;, &quot;ササゲ&quot;, &quot;豆類&quot;, &quot;5:seed;6:seed|care;7:care|harvest;8:harvest;9:harvest|clean&quot;, &quot;暑さに強い豆です。つる性品種は早めに支柱を立て、若いさやをこまめに採ります。&quot;),
+
+        C(&quot;onion&quot;, &quot;タマネギ&quot;, &quot;香味・多年草&quot;, &quot;1:care;2:care;3:care;4:care;5:harvest;6:harvest|clean;8:soil;9:seed|nursery;10:nursery;11:plant;12:care&quot;, &quot;太過ぎる苗はとう立ちしやすいため、鉛筆より少し細い苗を目安に定植します。&quot;),
+        C(&quot;scallion&quot;, &quot;長ネギ・葉ネギ&quot;, &quot;香味・多年草&quot;, &quot;2:soil;3:seed;4:seed|care;5:care;6:care;7:care|harvest;8:care|harvest;9:seed|harvest;10:care|harvest;11:harvest;12:harvest&quot;, &quot;長ネギは生育に合わせて数回土寄せし、葉ネギは株元を残して刈ると再生します。&quot;),
+        C(&quot;garlic&quot;, &quot;ニンニク&quot;, &quot;香味・多年草&quot;, &quot;1:care;2:care;3:care;4:care;5:harvest;6:harvest|clean;9:soil|plant;10:plant;11:care;12:care&quot;, &quot;水はけのよい畝に植え、春のさび病を早期に確認します。葉が黄変したら晴天日に収穫します。&quot;),
+        C(&quot;chive&quot;, &quot;ニラ&quot;, &quot;香味・多年草&quot;, &quot;2:soil;3:seed|plant;4:seed|care;5:harvest;6:harvest;7:harvest;8:harvest;9:harvest;10:harvest;11:clean;12:care&quot;, &quot;刈り取り後に追肥すると再生します。有毒植物のスイセンと混植・取り違えをしないでください。&quot;),
+        C(&quot;shiso&quot;, &quot;シソ&quot;, &quot;香味・多年草&quot;, &quot;3:soil;4:seed|nursery;5:plant|care;6:harvest;7:harvest;8:harvest;9:harvest;10:harvest|clean&quot;, &quot;種は光を好むため覆土を薄くし、穂じそを残す株以外は花芽を摘むと葉を長く収穫できます。&quot;),
+        C(&quot;basil&quot;, &quot;バジル&quot;, &quot;香味・多年草&quot;, &quot;4:seed|nursery;5:plant|care;6:harvest;7:harvest;8:harvest;9:harvest;10:harvest|clean&quot;, &quot;花穂を早めに摘み、先端を収穫しながら枝数を増やします。低温に弱いので定植を急ぎません。&quot;),
+        C(&quot;parsley&quot;, &quot;パセリ&quot;, &quot;香味・多年草&quot;, &quot;2:seed|nursery;3:seed|nursery;4:plant;5:harvest;6:harvest;7:care;8:soil;9:seed|nursery;10:plant;11:harvest;12:harvest;1:harvest&quot;, &quot;発芽が遅いので種を一晩吸水し、乾燥させません。外葉から少しずつ収穫します。&quot;),
+        C(&quot;celery&quot;, &quot;セロリ&quot;, &quot;香味・多年草&quot;, &quot;5:seed|nursery;6:nursery;7:nursery;8:soil|plant;9:plant|care;10:care;11:harvest;12:harvest;1:harvest;2:harvest|clean&quot;, &quot;乾燥と高温に弱いので、夏の育苗は半日陰で管理し、定植後は敷きわらをします。&quot;),
+        C(&quot;coriander&quot;, &quot;パクチー&quot;, &quot;香味・多年草&quot;, &quot;2:soil;3:seed;4:seed|harvest;5:harvest;6:harvest;8:soil;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;移植を嫌うので直播きが基本です。種を軽く割って吸水させると発芽がそろいやすくなります。&quot;),
+        C(&quot;ginger&quot;, &quot;ショウガ&quot;, &quot;香味・多年草&quot;, &quot;3:soil;4:plant;5:plant|care;6:care;7:care;8:care;9:care|harvest;10:harvest;11:harvest|clean&quot;, &quot;乾燥と強い直射日光を避け、土寄せと敷きわらを行います。新ショウガは夏、根ショウガは秋に収穫します。&quot;),
+        C(&quot;myoga&quot;, &quot;ミョウガ&quot;, &quot;香味・多年草&quot;, &quot;2:soil;3:plant;4:plant|care;5:care;6:care;7:harvest;8:harvest;9:harvest;10:clean;11:care;12:care&quot;, &quot;半日陰で乾燥させず、花蕾が地表に出る前後に収穫します。数年ごとに株分けします。&quot;),
+        C(&quot;mitsuba&quot;, &quot;ミツバ&quot;, &quot;香味・多年草&quot;, &quot;2:soil;3:seed;4:seed|harvest;5:harvest;6:harvest;8:soil;9:seed;10:seed|harvest;11:harvest;12:harvest&quot;, &quot;半日陰と湿り気のある場所を好みます。覆土は薄く、株元を残して収穫します。&quot;),
+        C(&quot;asparagus&quot;, &quot;アスパラガス&quot;, &quot;香味・多年草&quot;, &quot;1:soil;2:seed|nursery;3:seed|nursery|harvest;4:plant|harvest;5:care|harvest;6:care;7:care;8:care;9:care;10:care;11:clean;12:soil&quot;, &quot;植え付け後2年ほどは株を養成します。収穫後は茎葉を茂らせ、冬に枯れた茎を地際で片付けます。&quot;)
+      ];
+
+      const startMeta = {
+        plan: { code: &quot;畑&quot;, label: &quot;畑の計画&quot;, route: [&quot;作付け計画&quot;, &quot;土づくり&quot;, &quot;栽培開始&quot;], tip: &quot;連作を避ける区画、前作、次作を先に決めます。&quot; },
+        direct: { code: &quot;直&quot;, label: &quot;直播向き&quot;, route: [&quot;種&quot;, &quot;畑へ直播&quot;, &quot;間引き・管理&quot;], tip: &quot;根を傷めると生育が乱れやすいため、基本は畑へ直接まきます。&quot; },
+        seedling: { code: &quot;苗&quot;, label: &quot;苗植え向き&quot;, route: [&quot;種&quot;, &quot;育苗または購入苗&quot;, &quot;畑へ定植&quot;], tip: &quot;育苗に温度管理が要る品目は、家庭菜園では丈夫な購入苗も使いやすいです。&quot; },
+        either: { code: &quot;両&quot;, label: &quot;直播・苗どちらも可&quot;, route: [&quot;種&quot;, &quot;直播／育苗&quot;, &quot;畑で管理&quot;], tip: &quot;少量なら苗、多く作るなら直播など、時期と株数で選べます。&quot; },
+        planting: { code: &quot;株&quot;, label: &quot;種いも・種球・苗株&quot;, route: [&quot;種いも・種球・苗株&quot;, &quot;畑へ植付け&quot;], tip: &quot;食用品ではなく、病害の少ない栽培用の種いも・種球・苗株を使います。&quot; }
+      };
+      const lifeMeta = {
+        plan: { code: &quot;計&quot;, label: &quot;作付け計画&quot;, tip: &quot;畑全体の作業です。&quot; },
+        annual: { code: &quot;一&quot;, label: &quot;一年草・毎年更新&quot;, tip: &quot;基本は1作で終了し、次作は種や苗から始め直します。&quot; },
+        biennial: { code: &quot;二&quot;, label: &quot;二年草系・通常1作収穫&quot;, tip: &quot;本来は2年で開花しますが、家庭菜園では開花前に収穫するのが一般的です。&quot; },
+        perennial: { code: &quot;多&quot;, label: &quot;多年草・株を残せる&quot;, tip: &quot;収穫後も株を養成すれば、翌年以降も同じ場所から育ちます。&quot; },
+        perennialAnnual: { code: &quot;一作&quot;, label: &quot;多年草系・露地では一年作&quot;, tip: &quot;本来は多年草でも、日本の露地では寒さや収穫の都合で毎年更新するのが一般的です。&quot; }
+      };
+      const makeLookup = groupsMap =&gt; Object.fromEntries(Object.entries(groupsMap).flatMap(([kind, ids]) =&gt; ids.map(id =&gt; [id, kind])));
+      const startById = makeLookup({
+        plan: [&quot;field&quot;],
+        direct: [&quot;okra&quot;, &quot;corn&quot;, &quot;komatsuna&quot;, &quot;spinach&quot;, &quot;mizuna&quot;, &quot;shungiku&quot;, &quot;bokchoy&quot;, &quot;rocket&quot;, &quot;chard&quot;, &quot;mustard&quot;, &quot;daikon&quot;, &quot;turnip&quot;, &quot;carrot&quot;, &quot;burdock&quot;, &quot;beet&quot;, &quot;radish&quot;, &quot;edamame&quot;, &quot;green-bean&quot;, &quot;snap-pea&quot;, &quot;green-pea&quot;, &quot;fava&quot;, &quot;peanut&quot;, &quot;cowpea&quot;, &quot;coriander&quot;],
+        seedling: [&quot;tomato&quot;, &quot;eggplant&quot;, &quot;sweet-pepper&quot;, &quot;chili&quot;, &quot;shishito&quot;, &quot;paprika&quot;, &quot;bitter-melon&quot;, &quot;wax-gourd&quot;, &quot;watermelon&quot;, &quot;melon&quot;, &quot;luffa&quot;, &quot;cabbage&quot;, &quot;napa&quot;, &quot;broccoli&quot;, &quot;cauliflower&quot;, &quot;kale&quot;, &quot;celery&quot;, &quot;onion&quot;],
+        either: [&quot;cucumber&quot;, &quot;pumpkin&quot;, &quot;zucchini&quot;, &quot;lettuce&quot;, &quot;molokhia&quot;, &quot;shiso&quot;, &quot;basil&quot;, &quot;parsley&quot;, &quot;scallion&quot;, &quot;mitsuba&quot;],
+        planting: [&quot;potato&quot;, &quot;sweet-potato&quot;, &quot;taro&quot;, &quot;yacon&quot;, &quot;garlic&quot;, &quot;chive&quot;, &quot;ginger&quot;, &quot;myoga&quot;, &quot;asparagus&quot;]
+      });
+      const lifeById = makeLookup({
+        plan: [&quot;field&quot;],
+        annual: [&quot;cucumber&quot;, &quot;okra&quot;, &quot;pumpkin&quot;, &quot;zucchini&quot;, &quot;corn&quot;, &quot;bitter-melon&quot;, &quot;wax-gourd&quot;, &quot;watermelon&quot;, &quot;melon&quot;, &quot;luffa&quot;, &quot;lettuce&quot;, &quot;spinach&quot;, &quot;shungiku&quot;, &quot;rocket&quot;, &quot;molokhia&quot;, &quot;mustard&quot;, &quot;radish&quot;, &quot;edamame&quot;, &quot;green-bean&quot;, &quot;snap-pea&quot;, &quot;green-pea&quot;, &quot;fava&quot;, &quot;peanut&quot;, &quot;cowpea&quot;, &quot;shiso&quot;, &quot;basil&quot;, &quot;coriander&quot;],
+        biennial: [&quot;cabbage&quot;, &quot;napa&quot;, &quot;broccoli&quot;, &quot;cauliflower&quot;, &quot;komatsuna&quot;, &quot;mizuna&quot;, &quot;bokchoy&quot;, &quot;kale&quot;, &quot;chard&quot;, &quot;daikon&quot;, &quot;turnip&quot;, &quot;carrot&quot;, &quot;burdock&quot;, &quot;beet&quot;, &quot;onion&quot;, &quot;parsley&quot;, &quot;celery&quot;],
+        perennial: [&quot;scallion&quot;, &quot;chive&quot;, &quot;myoga&quot;, &quot;mitsuba&quot;, &quot;asparagus&quot;],
+        perennialAnnual: [&quot;tomato&quot;, &quot;eggplant&quot;, &quot;sweet-pepper&quot;, &quot;chili&quot;, &quot;shishito&quot;, &quot;paprika&quot;, &quot;potato&quot;, &quot;sweet-potato&quot;, &quot;taro&quot;, &quot;yacon&quot;, &quot;garlic&quot;, &quot;ginger&quot;]
+      });
+
+      const cropSelect = root.querySelector(&quot;#veg2Crop&quot;);
+      const monthSelect = root.querySelector(&quot;#veg2Month&quot;);
+      const groupSelect = root.querySelector(&quot;#veg2Group&quot;);
+      const styleSelect = root.querySelector(&quot;#veg2Style&quot;);
+      const climateChart = root.querySelector(&quot;#kyotoClimateChart&quot;);
+      const climateStats = root.querySelector(&quot;#kyotoClimateStats&quot;);
+      const monthlyTemps = root.querySelector(&quot;#kyotoMonthlyTemps&quot;);
+      const styleTitle = root.querySelector(&quot;#veg2StyleTitle&quot;);
+      const styleSource = root.querySelector(&quot;#veg2StyleSource&quot;);
+      const stylePrinciples = root.querySelector(&quot;#veg2StylePrinciples&quot;);
+      const styleMonthTip = root.querySelector(&quot;#veg2StyleMonthTip&quot;);
+      const lunarTitle = root.querySelector(&quot;#veg2LunarTitle&quot;);
+      const lunarYearSelect = root.querySelector(&quot;#veg2LunarYear&quot;);
+      const lunarCalendar = root.querySelector(&quot;#veg2LunarCalendar&quot;);
+      const lunarSelected = root.querySelector(&quot;#veg2LunarSelected&quot;);
+      const legend = root.querySelector(&quot;#veg2Legend&quot;);
+      const methodLegend = root.querySelector(&quot;#veg2MethodLegend&quot;);
+      const timeline = root.querySelector(&quot;#veg2Timeline&quot;);
+      const selectedName = root.querySelector(&quot;#veg2SelectedName&quot;);
+      const selectedGroup = root.querySelector(&quot;#veg2SelectedGroup&quot;);
+      const selectedStart = root.querySelector(&quot;#veg2Start&quot;);
+      const selectedLife = root.querySelector(&quot;#veg2Life&quot;);
+      const selectedRoute = root.querySelector(&quot;#veg2Route&quot;);
+      const selectedMethodTip = root.querySelector(&quot;#veg2MethodTip&quot;);
+      const selectedPhases = root.querySelector(&quot;#veg2SelectedPhases&quot;);
+      const selectedTips = root.querySelector(&quot;#veg2Tips&quot;);
+      const monthTitle = root.querySelector(&quot;#veg2MonthTitle&quot;);
+      const monthCount = root.querySelector(&quot;#veg2Count&quot;);
+      const monthList = root.querySelector(&quot;#veg2MonthList&quot;);
+      let selectedCropId = &quot;chili&quot;;
+      let selectedMonth = 7;
+      let selectedStyle = &quot;integrated&quot;;
+      let selectedLunarYear = 2026;
+      let selectedLunarDay = 11;
+
+      const visibleCrops = () =&gt; crops.filter(crop =&gt; groupSelect.value === &quot;すべて&quot; || crop.group === groupSelect.value);
+      const phasesFor = (crop, month) =&gt; crop.months[month] || [];
+      const dot = phase =&gt; {
+        const el = document.createElement(&quot;span&quot;);
+        el.className = &quot;dot&quot;;
+        el.style.setProperty(&quot;--dot-color&quot;, meta[phase].color);
+        el.setAttribute(&quot;aria-hidden&quot;, &quot;true&quot;);
+        return el;
+      };
+      const chip = phase =&gt; {
+        const el = document.createElement(&quot;span&quot;);
+        el.className = &quot;chip&quot;;
+        el.append(dot(phase));
+        const label = document.createElement(&quot;span&quot;);
+        label.textContent = meta[phase].label;
+        el.append(label);
+        return el;
+      };
+
+      function refreshCropSelect() {
+        const options = visibleCrops();
+        if (!options.some(crop =&gt; crop.id === selectedCropId)) selectedCropId = options[0]?.id || crops[0].id;
+        cropSelect.replaceChildren(...options.map(crop =&gt; {
+          const option = document.createElement(&quot;option&quot;);
+          option.value = crop.id;
+          option.textContent = `${crop.name}（${crop.group}）`;
+          option.selected = crop.id === selectedCropId;
+          return option;
+        }));
+      }
+
+      function renderLegend() {
+        legend.replaceChildren(...Object.entries(meta).map(([phase, info]) =&gt; {
+          const item = document.createElement(&quot;span&quot;);
+          item.className = &quot;legend-item&quot;;
+          item.append(dot(phase));
+          const label = document.createElement(&quot;span&quot;);
+          label.textContent = `${info.short}: ${info.label}`;
+          item.append(label);
+          return item;
+        }));
+      }
+
+      function renderMethodLegend() {
+        const items = [];
+        const startLabel = document.createElement(&quot;span&quot;);
+        startLabel.className = &quot;text-muted&quot;;
+        startLabel.textContent = &quot;始め方&quot;;
+        items.push(startLabel);
+        [&quot;direct&quot;, &quot;seedling&quot;, &quot;either&quot;, &quot;planting&quot;].forEach(kind =&gt; {
+          const item = document.createElement(&quot;span&quot;);
+          item.className = &quot;method-key&quot;;
+          const code = document.createElement(&quot;span&quot;);
+          code.className = &quot;method-code&quot;;
+          code.textContent = startMeta[kind].code;
+          const label = document.createElement(&quot;span&quot;);
+          label.textContent = startMeta[kind].label;
+          item.append(code, label);
+          items.push(item);
+        });
+        const lifeLabel = document.createElement(&quot;span&quot;);
+        lifeLabel.className = &quot;text-muted&quot;;
+        lifeLabel.textContent = &quot;草性&quot;;
+        items.push(lifeLabel);
+        [&quot;annual&quot;, &quot;biennial&quot;, &quot;perennial&quot;, &quot;perennialAnnual&quot;].forEach(kind =&gt; {
+          const item = document.createElement(&quot;span&quot;);
+          item.className = &quot;method-key&quot;;
+          const code = document.createElement(&quot;span&quot;);
+          code.className = &quot;method-code&quot;;
+          code.textContent = lifeMeta[kind].code;
+          const label = document.createElement(&quot;span&quot;);
+          label.textContent = lifeMeta[kind].label;
+          item.append(code, label);
+          items.push(item);
+        });
+        methodLegend.replaceChildren(...items);
+      }
+
+      function svgNode(name, attributes = {}, text = &quot;&quot;) {
+        const el = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, name);
+        Object.entries(attributes).forEach(([key, value]) =&gt; el.setAttribute(key, String(value)));
+        if (text) el.textContent = text;
+        return el;
+      }
+
+      function renderClimateChart() {
+        const width = 700;
+        const height = 250;
+        const margin = { left: 42, right: 70, top: 18, bottom: 32 };
+        const xMin = 1979;
+        const xMax = 2090;
+        const yMin = 10;
+        const yMax = 18;
+        const x = year =&gt; margin.left + (year - xMin) / (xMax - xMin) * (width - margin.left - margin.right);
+        const y = temp =&gt; margin.top + (yMax - temp) / (yMax - yMin) * (height - margin.top - margin.bottom);
+        const nodes = [];
+        nodes.push(svgNode(&quot;rect&quot;, { x: x(2025), y: margin.top, width: x(2090) - x(2025), height: height - margin.top - margin.bottom, class: &quot;climate-future-zone&quot; }));
+        [10,12,14,16,18].forEach(tick =&gt; {
+          nodes.push(svgNode(&quot;line&quot;, { x1: margin.left, y1: y(tick), x2: width - margin.right, y2: y(tick), class: &quot;climate-grid-line&quot; }));
+          nodes.push(svgNode(&quot;text&quot;, { x: margin.left - 7, y: y(tick) + 4, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;climate-label&quot; }, `${tick}℃`));
+        });
+        [1979,1990,2000,2010,2025,2090].forEach(tick =&gt; {
+          nodes.push(svgNode(&quot;text&quot;, { x: x(tick), y: height - 8, &quot;text-anchor&quot;: &quot;middle&quot;, class: &quot;climate-label&quot; }, String(tick)));
+        });
+        const path = climateHistory.map(([year, temp], index) =&gt; `${index ? &quot;L&quot; : &quot;M&quot;}${x(year).toFixed(1)},${y(temp).toFixed(1)}`).join(&quot; &quot;);
+        nodes.push(svgNode(&quot;path&quot;, { d: path, class: &quot;climate-history&quot; }));
+        const n = climateHistory.length;
+        const sx = climateHistory.reduce((sum, item) =&gt; sum + item[0], 0);
+        const sy = climateHistory.reduce((sum, item) =&gt; sum + item[1], 0);
+        const sxx = climateHistory.reduce((sum, item) =&gt; sum + item[0] * item[0], 0);
+        const sxy = climateHistory.reduce((sum, item) =&gt; sum + item[0] * item[1], 0);
+        const slope = (n * sxy - sx * sy) / (n * sxx - sx * sx);
+        const intercept = (sy - slope * sx) / n;
+        nodes.push(svgNode(&quot;line&quot;, { x1: x(1979), y1: y(slope * 1979 + intercept), x2: x(2025), y2: y(slope * 2025 + intercept), class: &quot;climate-trend&quot; }));
+        nodes.push(svgNode(&quot;line&quot;, { x1: x(2005), y1: y(13.0), x2: x(2090), y2: y(14.4), class: &quot;climate-projection-low&quot; }));
+        nodes.push(svgNode(&quot;line&quot;, { x1: x(2005), y1: y(13.0), x2: x(2090), y2: y(17.4), class: &quot;climate-projection-high&quot; }));
+        nodes.push(svgNode(&quot;circle&quot;, { cx: x(2090), cy: y(14.4), r: 4, class: &quot;climate-point-low&quot; }));
+        nodes.push(svgNode(&quot;circle&quot;, { cx: x(2090), cy: y(17.4), r: 4, class: &quot;climate-point-high&quot; }));
+        nodes.push(svgNode(&quot;text&quot;, { x: x(2090) + 7, y: y(14.4) + 4, class: &quot;climate-label&quot; }, &quot;2℃世界 14.4℃&quot;));
+        nodes.push(svgNode(&quot;text&quot;, { x: x(2090) + 7, y: y(17.4) + 4, class: &quot;climate-label&quot; }, &quot;4℃世界 17.4℃&quot;));
+        nodes.push(svgNode(&quot;text&quot;, { x: x(1982), y: y(10.6), class: &quot;climate-label&quot; }, &quot;観測値&quot;));
+        nodes.push(svgNode(&quot;text&quot;, { x: x(2030), y: margin.top + 16, class: &quot;climate-label&quot; }, &quot;21世紀末の地域目安&quot;));
+        climateChart.replaceChildren(...nodes);
+        climateStats.replaceChildren(...[
+          &quot;1979–88平均 12.2℃&quot;,
+          &quot;2016–25平均 13.7℃&quot;,
+          &quot;観測傾向 +0.34℃/10年&quot;,
+          &quot;京都府21世紀末 +1.4℃ / +4.4℃&quot;
+        ].map(value =&gt; {
+          const badge = document.createElement(&quot;span&quot;);
+          badge.className = &quot;viz-badge&quot;;
+          badge.textContent = value;
+          return badge;
+        }));
+      }
+
+      function renderMonthlyTemps() {
+        const min = Math.min(...monthlyNormal);
+        const max = Math.max(...monthlyNormal);
+        monthlyTemps.replaceChildren(...monthlyNormal.map((temp, index) =&gt; {
+          const cell = document.createElement(&quot;div&quot;);
+          cell.className = &quot;temp-cell&quot;;
+          if (index + 1 === selectedMonth) cell.classList.add(&quot;is-active&quot;);
+          const heat = 18 + (temp - min) / (max - min) * 64;
+          cell.style.setProperty(&quot;--heat&quot;, `${heat.toFixed(0)}%`);
+          const month = document.createElement(&quot;span&quot;);
+          month.textContent = `${index + 1}月`;
+          const value = document.createElement(&quot;span&quot;);
+          value.textContent = `${temp.toFixed(1)}℃`;
+          cell.append(month, value);
+          return cell;
+        }));
+      }
+
+      function renderStyleSummary() {
+        const style = styleMeta[selectedStyle];
+        styleTitle.textContent = style.label;
+        styleSource.textContent = style.source;
+        stylePrinciples.replaceChildren(...style.principles.map(text =&gt; {
+          const badge = document.createElement(&quot;span&quot;);
+          badge.className = &quot;viz-badge&quot;;
+          badge.textContent = text;
+          return badge;
+        }));
+        styleMonthTip.textContent = `${selectedMonth}月：${style.month[selectedMonth]}`;
+      }
+
+      function eventDate(event) {
+        const [hour, minute] = event.time.split(&quot;:&quot;).map(Number);
+        return new Date(event.year, event.month - 1, event.day, hour, minute);
+      }
+
+      function moonStateForDay(year, month, day) {
+        const noon = new Date(year, month - 1, day, 12, 0);
+        const previous = moonEvents.filter(event =&gt; eventDate(event) &lt;= noon).at(-1);
+        const previousNew = moonEvents.filter(event =&gt; event.type === &quot;new&quot; &amp;&amp; eventDate(event) &lt;= noon).at(-1);
+        const exact = moonEvents.find(event =&gt; event.year === year &amp;&amp; event.month === month &amp;&amp; event.day === day);
+        const segment = previous ? moonMeta[previous.type].segment : &quot;waxingLate&quot;;
+        const age = previousNew ? (noon - eventDate(previousNew)) / 86400000 : null;
+        return { segment, exact, age };
+      }
+
+      function lunarTargetForCrop(crop) {
+        const rootLike = [&quot;potato&quot;,&quot;sweet-potato&quot;,&quot;taro&quot;,&quot;daikon&quot;,&quot;turnip&quot;,&quot;carrot&quot;,&quot;burdock&quot;,&quot;beet&quot;,&quot;radish&quot;,&quot;yacon&quot;,&quot;onion&quot;,&quot;garlic&quot;,&quot;scallion&quot;,&quot;chive&quot;,&quot;ginger&quot;,&quot;myoga&quot;,&quot;asparagus&quot;];
+        if (crop.id === &quot;field&quot;) return &quot;waningLate&quot;;
+        if (rootLike.includes(crop.id) || lifeById[crop.id] === &quot;perennial&quot;) return &quot;waningEarly&quot;;
+        if (crop.group === &quot;果菜・瓜類&quot; || crop.group === &quot;豆類&quot;) return &quot;waxingLate&quot;;
+        return &quot;waxingEarly&quot;;
+      }
+
+      function moonAgeGuide(age) {
+        if (age == null) return { broad: false, label: &quot;月齢データなし&quot;, work: &quot;天候と作物の適期を優先&quot; };
+        if (age &lt; 7.4) return { broad: true, label: &quot;新月期 0～7.3&quot;, work: &quot;伝統目安：葉物・茎物の播種候補&quot; };
+        if (age &lt; 14.8) return { broad: true, label: &quot;満ちる月 7.4～14.7&quot;, work: &quot;伝統目安：果菜・豆類の播種・定植候補&quot; };
+        if (age &lt;= 18) return { broad: true, label: &quot;満月後 14.8～18.0&quot;, work: &quot;伝統目安：根菜・球根類へ移る候補帯&quot; };
+        if (age &lt; 22.1) return { broad: false, label: &quot;欠ける月 18.1～22.0&quot;, work: &quot;伝統目安：根菜・多年草の植え付け候補&quot; };
+        return { broad: false, label: &quot;下弦期 22.1～29.5&quot;, work: &quot;伝統目安：草刈り・剪定・収穫・土の観察&quot; };
+      }
+
+      function renderLunarCalendar() {
+        const crop = crops.find(item =&gt; item.id === selectedCropId) || crops[0];
+        const targetSegment = lunarTargetForCrop(crop);
+        const daysInMonth = new Date(selectedLunarYear, selectedMonth, 0).getDate();
+        selectedLunarDay = Math.min(selectedLunarDay, daysInMonth);
+        lunarTitle.textContent = `月の暦 ${selectedLunarYear}年${selectedMonth}月`;
+        const nodes = [];
+        [&quot;日&quot;,&quot;月&quot;,&quot;火&quot;,&quot;水&quot;,&quot;木&quot;,&quot;金&quot;,&quot;土&quot;].forEach(day =&gt; {
+          const head = document.createElement(&quot;div&quot;);
+          head.className = &quot;lunar-weekday&quot;;
+          head.textContent = day;
+          nodes.push(head);
+        });
+        const firstWeekday = new Date(selectedLunarYear, selectedMonth - 1, 1).getDay();
+        for (let i = 0; i &lt; firstWeekday; i += 1) {
+          const blank = document.createElement(&quot;div&quot;);
+          blank.className = &quot;lunar-blank&quot;;
+          blank.setAttribute(&quot;aria-hidden&quot;, &quot;true&quot;);
+          nodes.push(blank);
+        }
+        for (let day = 1; day &lt;= daysInMonth; day += 1) {
+          const state = moonStateForDay(selectedLunarYear, selectedMonth, day);
+          const ageGuide = moonAgeGuide(state.age);
+          const recommended = state.segment === targetSegment;
+          const button = document.createElement(&quot;button&quot;);
+          button.type = &quot;button&quot;;
+          button.className = &quot;lunar-day&quot;;
+          if (recommended) button.classList.add(&quot;is-recommended&quot;);
+          if (ageGuide.broad) button.classList.add(&quot;is-broad-sowing&quot;);
+          if (day === selectedLunarDay) button.classList.add(&quot;is-selected&quot;);
+          const eventText = state.exact ? `${moonMeta[state.exact.type].label} ${state.exact.time}` : segmentMeta[state.segment].label;
+          const ageText = state.age == null ? &quot;&quot; : `、正午月齢約${state.age.toFixed(1)}`;
+          button.setAttribute(&quot;aria-label&quot;, `${selectedLunarYear}年${selectedMonth}月${day}日、${eventText}${ageText}${recommended ? `、${crop.name}の伝統的目安と一致` : &quot;&quot;}`);
+          button.addEventListener(&quot;click&quot;, () =&gt; {
+            selectedLunarDay = day;
+            renderLunarCalendar();
+          });
+          const date = document.createElement(&quot;span&quot;);
+          date.className = &quot;lunar-date&quot;;
+          date.textContent = String(day);
+          const moon = document.createElement(&quot;span&quot;);
+          moon.className = &quot;moon-glyph&quot;;
+          moon.textContent = state.exact ? moonMeta[state.exact.type].icon : segmentMeta[state.segment].icon;
+          const age = document.createElement(&quot;span&quot;);
+          age.className = &quot;lunar-age&quot;;
+          age.textContent = `月齢 ${state.age?.toFixed(1) ?? &quot;—&quot;}`;
+          const mark = document.createElement(&quot;span&quot;);
+          mark.className = &quot;lunar-mark&quot;;
+          mark.textContent = state.exact ? moonMeta[state.exact.type].label : (recommended ? &quot;○&quot; : &quot;&quot;);
+          button.append(date, moon, age, mark);
+          nodes.push(button);
+        }
+        lunarCalendar.replaceChildren(...nodes);
+
+        const selectedState = moonStateForDay(selectedLunarYear, selectedMonth, selectedLunarDay);
+        const selectedAgeGuide = moonAgeGuide(selectedState.age);
+        const selectedEvent = selectedState.exact ? `${moonMeta[selectedState.exact.type].label} ${selectedState.exact.time}` : segmentMeta[selectedState.segment].label;
+        const match = selectedState.segment === targetSegment;
+        const values = [
+          `${selectedLunarYear}/${selectedMonth}/${selectedLunarDay}`,
+          selectedEvent,
+          `正午区分：${segmentMeta[selectedState.segment].label}`,
+          `正午月齢 約${selectedState.age?.toFixed(1) ?? &quot;—&quot;}`,
+          `月齢帯：${selectedAgeGuide.label}`,
+          selectedAgeGuide.work,
+          `月齢0～18の広い播種候補：${selectedAgeGuide.broad ? &quot;該当&quot; : &quot;対象外&quot;}（経験的目安）`,
+          `伝統目安：${segmentMeta[selectedState.segment].tradition}`,
+          `${crop.name}：${match ? &quot;目安と一致&quot; : `目安は${segmentMeta[targetSegment].label}`}`
+        ];
+        lunarSelected.replaceChildren(...values.map((value, index) =&gt; {
+          const span = document.createElement(&quot;span&quot;);
+          span.className = index === 0 ? &quot;summary-name&quot; : &quot;viz-badge&quot;;
+          span.textContent = value;
+          return span;
+        }));
+      }
+
+      function renderSummary() {
+        const crop = crops.find(item =&gt; item.id === selectedCropId) || crops[0];
+        const phases = phasesFor(crop, selectedMonth);
+        const start = startMeta[startById[crop.id]];
+        const life = lifeMeta[lifeById[crop.id]];
+        selectedName.textContent = `${crop.name} / ${selectedMonth}月`;
+        selectedGroup.textContent = crop.group;
+        selectedStart.textContent = `始め方：${start.label}`;
+        selectedLife.textContent = `草性：${life.label}`;
+        selectedRoute.replaceChildren();
+        start.route.forEach((step, index) =&gt; {
+          if (index &gt; 0) {
+            const arrow = document.createElement(&quot;span&quot;);
+            arrow.className = &quot;route-arrow&quot;;
+            arrow.textContent = &quot;→&quot;;
+            arrow.setAttribute(&quot;aria-hidden&quot;, &quot;true&quot;);
+            selectedRoute.append(arrow);
+          }
+          const node = document.createElement(&quot;span&quot;);
+          node.className = &quot;route-node&quot;;
+          node.textContent = step;
+          selectedRoute.append(node);
+        });
+        selectedRoute.setAttribute(&quot;aria-label&quot;, `${crop.name}の始め方: ${start.route.join(&quot;、次に&quot;)}`);
+        selectedMethodTip.textContent = `${start.tip} ${life.tip}`;
+        selectedPhases.replaceChildren();
+        if (phases.length) phases.forEach(phase =&gt; selectedPhases.append(chip(phase)));
+        else {
+          const empty = document.createElement(&quot;span&quot;);
+          empty.className = &quot;text-muted&quot;;
+          empty.textContent = &quot;主な作業は少なめ。次の作業時期と資材を確認します。&quot;;
+          selectedPhases.append(empty);
+        }
+        const conflictsWithNaturalBase = text =&gt; /(寒起こし|天地返し|深く耕|苦土石灰|元肥|追肥して|堆肥を)/.test(text || &quot;&quot;);
+        const cropSpecific = [crop.notes[selectedMonth], crop.tip].filter(text =&gt; text &amp;&amp; !conflictsWithNaturalBase(text));
+        const tips = [climateTips[selectedMonth], styleMeta[selectedStyle].month[selectedMonth], ...phases.map(phase =&gt; phaseTips[phase]), ...cropSpecific].filter(Boolean);
+        selectedTips.replaceChildren(...[...new Set(tips)].slice(0, 5).map(text =&gt; {
+          const li = document.createElement(&quot;li&quot;);
+          li.textContent = text;
+          return li;
+        }));
+      }
+
+      function renderMonthList() {
+        const active = visibleCrops().map(crop =&gt; ({ crop, phases: phasesFor(crop, selectedMonth) })).filter(item =&gt; item.phases.length);
+        monthTitle.textContent = `${selectedMonth}月の作業一覧`;
+        monthCount.textContent = `${active.length}品目 / 表示${visibleCrops().length}品目`;
+        monthList.replaceChildren(...active.map(item =&gt; {
+          const row = document.createElement(&quot;button&quot;);
+          row.type = &quot;button&quot;;
+          row.className = &quot;btn btn-ghost month-item&quot;;
+          row.addEventListener(&quot;click&quot;, () =&gt; {
+            selectedCropId = item.crop.id;
+            cropSelect.value = selectedCropId;
+            renderAll(false);
+          });
+          const name = document.createElement(&quot;span&quot;);
+          name.className = &quot;summary-name&quot;;
+          name.textContent = item.crop.name;
+          const phaseWrap = document.createElement(&quot;span&quot;);
+          phaseWrap.className = &quot;chips&quot;;
+          item.phases.forEach(phase =&gt; phaseWrap.append(chip(phase)));
+          row.append(name, phaseWrap);
+          return row;
+        }));
+      }
+
+      function renderTimeline() {
+        const rows = [];
+        const header = document.createElement(&quot;div&quot;);
+        header.className = &quot;timeline-row&quot;;
+        const corner = document.createElement(&quot;div&quot;);
+        corner.className = &quot;month-head&quot;;
+        corner.textContent = `野菜（${visibleCrops().length}）`;
+        header.append(corner);
+        months.forEach((month, index) =&gt; {
+          const button = document.createElement(&quot;button&quot;);
+          button.type = &quot;button&quot;;
+          button.className = &quot;btn btn-ghost month-head&quot;;
+          button.textContent = String(index + 1);
+          button.setAttribute(&quot;aria-label&quot;, `${month}を表示`);
+          button.addEventListener(&quot;click&quot;, () =&gt; {
+            selectedMonth = index + 1;
+            monthSelect.value = String(selectedMonth);
+            renderAll(false);
+          });
+          header.append(button);
+        });
+        rows.push(header);
+        visibleCrops().forEach(crop =&gt; {
+          const row = document.createElement(&quot;div&quot;);
+          row.className = &quot;timeline-row&quot;;
+          const head = document.createElement(&quot;button&quot;);
+          head.type = &quot;button&quot;;
+          head.className = &quot;btn btn-ghost row-head&quot;;
+          head.addEventListener(&quot;click&quot;, () =&gt; {
+            selectedCropId = crop.id;
+            cropSelect.value = crop.id;
+            renderAll(false);
+          });
+          const name = document.createElement(&quot;span&quot;);
+          name.className = &quot;crop-name&quot;;
+          name.textContent = crop.name;
+          const code = document.createElement(&quot;span&quot;);
+          code.className = &quot;row-code&quot;;
+          code.textContent = `${startMeta[startById[crop.id]].code}/${lifeMeta[lifeById[crop.id]].code}`;
+          head.append(code, name);
+          row.append(head);
+          months.forEach((month, index) =&gt; {
+            const monthNo = index + 1;
+            const phases = phasesFor(crop, monthNo);
+            const cell = document.createElement(&quot;button&quot;);
+            cell.type = &quot;button&quot;;
+            cell.className = &quot;month-cell&quot;;
+            if (crop.id === selectedCropId &amp;&amp; monthNo === selectedMonth) cell.classList.add(&quot;is-selected&quot;);
+            if (monthNo === selectedMonth) cell.classList.add(&quot;is-active-month&quot;);
+            cell.setAttribute(&quot;aria-label&quot;, phases.length ? `${crop.name} ${month}: ${phases.map(p =&gt; meta[p].label).join(&quot;、&quot;)}` : `${crop.name} ${month}: 主な作業なし`);
+            cell.addEventListener(&quot;click&quot;, () =&gt; {
+              selectedCropId = crop.id;
+              selectedMonth = monthNo;
+              cropSelect.value = crop.id;
+              monthSelect.value = String(monthNo);
+              renderAll(false);
+            });
+            const dots = document.createElement(&quot;span&quot;);
+            dots.className = &quot;cell-dots&quot;;
+            if (phases.length) phases.slice(0, 4).forEach(phase =&gt; {
+              const mark = document.createElement(&quot;span&quot;);
+              mark.className = &quot;cell-dot&quot;;
+              mark.style.setProperty(&quot;--dot-color&quot;, meta[phase].color);
+              dots.append(mark);
+            });
+            else {
+              const mark = document.createElement(&quot;span&quot;);
+              mark.className = &quot;empty-dot&quot;;
+              dots.append(mark);
+            }
+            cell.append(dots);
+            row.append(cell);
+          });
+          rows.push(row);
+        });
+        timeline.replaceChildren(...rows);
+      }
+
+      function renderAll(sync = true) {
+        if (sync) refreshCropSelect();
+        renderMonthlyTemps();
+        renderStyleSummary();
+        renderLunarCalendar();
+        renderSummary();
+        renderMonthList();
+        renderTimeline();
+      }
+
+      lunarYearSelect.replaceChildren(...[2026, 2027].map(year =&gt; {
+        const option = document.createElement(&quot;option&quot;);
+        option.value = String(year);
+        option.textContent = `${year}年`;
+        option.selected = year === selectedLunarYear;
+        return option;
+      }));
+      styleSelect.replaceChildren(...Object.entries(styleMeta).map(([value, style]) =&gt; {
+        const option = document.createElement(&quot;option&quot;);
+        option.value = value;
+        option.textContent = style.label;
+        option.selected = value === selectedStyle;
+        return option;
+      }));
+      groupSelect.replaceChildren(...groups.map(group =&gt; {
+        const option = document.createElement(&quot;option&quot;);
+        option.value = group;
+        option.textContent = group;
+        return option;
+      }));
+      monthSelect.replaceChildren(...months.map((month, index) =&gt; {
+        const option = document.createElement(&quot;option&quot;);
+        option.value = String(index + 1);
+        option.textContent = month;
+        option.selected = index + 1 === selectedMonth;
+        return option;
+      }));
+      renderClimateChart();
+      renderLegend();
+      renderMethodLegend();
+      refreshCropSelect();
+      renderAll(false);
+
+      cropSelect.addEventListener(&quot;change&quot;, event =&gt; { selectedCropId = event.target.value; renderAll(false); });
+      monthSelect.addEventListener(&quot;change&quot;, event =&gt; { selectedMonth = Number(event.target.value); renderAll(false); });
+      groupSelect.addEventListener(&quot;change&quot;, () =&gt; { refreshCropSelect(); renderAll(false); });
+      styleSelect.addEventListener(&quot;change&quot;, event =&gt; { selectedStyle = event.target.value; renderAll(false); });
+      lunarYearSelect.addEventListener(&quot;change&quot;, event =&gt; { selectedLunarYear = Number(event.target.value); selectedLunarDay = 1; renderLunarCalendar(); });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

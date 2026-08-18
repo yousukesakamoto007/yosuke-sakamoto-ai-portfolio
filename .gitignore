@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+.env.*
+private/
+raw_cache.json
+history.json
+applied.json
+report/
+*.log
+*.tar.gz
+*.zip
+
