@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="坂本陽介のポートフォリオ。FX取引分析、カフェ予約『余白』、求人整理の3つのWebアプリを、公開デモと設計の考え方とともに紹介します。" />
-  <meta name="portfolio-version" content="three-products-2026" />
+  <meta name="description" content="坂本陽介のポートフォリオ。業務依頼管理Relay、カフェ予約『余白』、FX分析、求人整理。動くデモと設計・検証を紹介します。" />
+  <meta name="portfolio-version" content="four-products-evidence-2026" />
   <title>坂本陽介 | AIを活用したWebアプリ制作</title>
   <style>
     :root{--bg:#f7f7f2;--paper:#fff;--ink:#243b37;--muted:#586963;--line:#dce2d9;--accent:#286352}
@@ -19,6 +19,7 @@
     @media(max-width:800px){.wrap{width:calc(100% - 36px)}.hero{padding-block:48px}.project{grid-template-columns:1fr}.visual{padding:26px}.mini{max-width:460px;width:100%;align-self:center}.visual-label{max-width:460px;width:100%;align-self:center}.project-copy{padding:28px}.about{grid-template-columns:1fr;gap:20px}.reference{align-items:flex-start;flex-direction:column;gap:16px}}
     @media(max-width:420px){.topbar{align-items:flex-start;flex-direction:column;gap:12px}nav{gap:22px;font-size:11px}.wordmark{font-size:12px}.section-heading{display:block}.section-heading p{margin-top:6px}.project-copy{padding:23px}.detail{grid-template-columns:64px minmax(0,1fr);gap:8px}h3{font-size:23px}.visual{padding:23px}.mini{padding:19px}.metric-row{gap:16px}.metric-row strong{font-size:14px}}
     .supplement{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:25px 28px;margin:8px 0 20px;border:1px solid #d9e2e5;border-radius:9px;background:#edf2f3}.supplement .eyebrow{margin-bottom:6px;color:#456676;font-size:10px}.supplement h2{font-size:20px;font-weight:600;margin:0 0 10px}.supplement p{font-size:12px;color:var(--muted);margin:0;max-width:760px}.supplement .scope{margin-top:9px;font-size:11px}.supplement .open{background:#264958;white-space:nowrap}.supplement .open:hover{background:#193947}@media(max-width:800px){.supplement{grid-template-columns:1fr;padding:23px;gap:18px}.supplement .open{justify-self:start}}
+    .visual-relay{background:#e7eff1}.role-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 26px}.role-nav a{display:block;border:1px solid var(--line);background:#fff;border-radius:6px;padding:12px 14px;font-size:11px;text-decoration:none}.role-nav a:hover{border-color:var(--accent)}.role-nav span{display:block;font-size:13px;font-weight:600;margin-top:3px}h3[id]{scroll-margin-top:24px}@media(max-width:800px){.role-nav{grid-template-columns:1fr 1fr}}@media(max-width:420px){h1{font-size:29px}.role-nav{gap:8px}.role-nav a{padding:10px;font-size:10px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 </head>
@@ -27,16 +28,17 @@
   <main class="wrap">
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">PORTFOLIO / AI-ASSISTED DEVELOPMENT</p><h1 id="page-title">身近な不便から、<br />使える仕組みを考える。</h1>
-      <p class="intro">取引の振り返り、お店の予約、求人の整理。使う人が迷うところや、何度も繰り返す作業を出発点に、AIの力を借りながらWebアプリを制作しています。</p>
+      <p class="intro">依頼の整理、お店の予約、取引の振り返り。身近な課題を出発点に、AIエージェントとWebアプリを制作しています。見た目だけでなく、保存・更新・データの境界をどう確かめたかも紹介します。</p>
       <p class="signature">坂本 陽介 <span>YOSUKE SAKAMOTO</span></p>
     </section>
     <section id="works" aria-labelledby="works-title">
-      <div class="section-heading"><h2 id="works-title">実際に触れる、3つの制作物</h2><p>できることと、公開している範囲を添えて。</p></div>
-      <article class="project" aria-labelledby="fx-title">
-        <div class="visual"><div class="visual-label"><span>FX TRADE ANALYTICS</span><span>機能イメージ</span></div><div class="mini"><p class="mini-title">損益とリスクを、一緒に見る。</p><div class="metric-row"><div><span>見る指標</span><strong>損益・勝率</strong></div><div><span>確認するリスク</span><strong>最大DD・PF</strong></div></div><svg class="graph" viewBox="0 0 340 128" role="img" aria-label="累積損益のグラフを表すイメージ。実績値ではありません。"><path d="M0 24H340M0 64H340M0 104H340" fill="none" stroke="#e2e8e2"/><path d="M0 108L28 103L58 78L86 88L115 60L145 71L173 40L205 51L235 33L270 43L305 14L340 22V128H0Z" fill="#e0ede4"/><path d="M0 108L28 103L58 78L86 88L115 60L145 71L173 40L205 51L235 33L270 43L305 14L340 22" fill="none" stroke="#36725d" stroke-width="2.5"/></svg><p class="mini-caption">全期間 → 年 → 月 ／ 通貨ペア・手法で絞り込み</p></div></div>
-        <div class="project-copy"><p class="number">01 / DATA ANALYSIS</p><h3 id="fx-title">FX取引分析</h3><p class="description">自己資金でFXを続けてきた経験から、損益だけでは見えにくい取引の傾向を振り返るために制作。期間や手法を切り替え、同じ指標で比較できるようにしました。</p>
-          <dl><div class="detail"><dt>試せること</dt><dd>サンプルCSVの集計、年・月別の比較、通貨ペア・手法の絞り込み、取引の価格水準図。</dd></div><div class="detail"><dt>技術</dt><dd>HTML / CSS / JavaScript / Canvas / CSV解析</dd></div><div class="detail"><dt>公開範囲</dt><dd>ログイン不要。サンプルデータで操作できます。読み込んだCSVはブラウザ内で処理し、サーバーへ送信しません。</dd></div></dl>
-          <div class="actions"><a class="open" href="./projects/fx-trade-analytics/">分析デモを試す →</a><a class="code-link" href="https://github.com/yousukesakamoto007/yosuke-sakamoto-ai-portfolio/tree/main/projects/fx-trade-analytics" target="_blank" rel="noreferrer">公開コード ↗</a></div>
+      <div class="section-heading"><h2 id="works-title">動くものと、その裏側。4つの制作物</h2><p>関心のある領域からご覧ください。</p></div>
+      <nav class="role-nav" aria-label="職種・関心別の作品案内"><a href="#relay-title">バックエンド・QA <span>Relay</span></a><a href="#cafe-title">予約UI・データ整合性 <span>余白</span></a><a href="#fx-title">データ加工・可視化 <span>FX分析</span></a><a href="#jobs-title">業務整理・改善 <span>求人整理</span></a></nav>
+      <article class="project" aria-labelledby="relay-title">
+        <div class="visual visual-relay"><div class="visual-label"><span>REQUEST WORKSPACE</span><span>設計の構成イメージ</span></div><div class="mini"><p class="mini-title">Relay / 依頼と、その経緯を残す。</p><div class="job-flow"><span>本人を確認</span><span>入力を検証</span><span>DBへ保存</span></div><div class="job-row"><strong>同じ依頼の再送</strong><span>同じ送信キーでは二重に作らない</span></div><div class="job-row"><strong>古い画面からの更新</strong><span>versionを照合し、競合を知らせる</span></div><div class="job-row"><strong>変更履歴の記録</strong><span>依頼の変更と一緒に保存する</span></div></div></div>
+        <div class="project-copy"><p class="number">01 / BACKEND · QUALITY · WORKFLOW</p><h3 id="relay-title">Relay — 業務依頼管理</h3><p class="description">依頼を作り、状態を変え、経緯を残す。本人別のデータ管理に、再送・更新競合・履歴保存の整合性を組み合わせました。設計と失敗ケースの検証も公開しています。</p>
+          <dl><div class="detail"><dt>試せること</dt><dd>架空サンプルの閲覧、ログイン後の本人用依頼の保存・状態更新・履歴確認。</dd></div><div class="detail"><dt>技術</dt><dd>React / TypeScript / Vinext / D1（SQLite）/ HTTP API / 自動テスト</dd></div><div class="detail"><dt>公開範囲</dt><dd>閲覧はログイン不要。保存にはChatGPTログインが必要です。コード原本と利用者の保存データは非公開。チーム共有・商用運用の実績を示すものではありません。</dd></div></dl>
+          <div class="actions"><a class="open" href="https://sakamoto-relay-ops.sukekyu82.chatgpt.site/" target="_blank" rel="noreferrer">アプリを試す ↗</a><a class="code-link" href="./engineering/relay/">設計と検証を見る →</a></div>
         </div>
       </article>
       <article class="project" aria-labelledby="cafe-title">
@@ -46,19 +48,22 @@
           <div class="actions"><a class="open" href="https://yohaku-cafe-reservation.sukekyu82.chatgpt.site" target="_blank" rel="noreferrer">予約アプリを開く ↗</a></div>
         </div>
       </article>
+      <article class="project" aria-labelledby="fx-title">
+        <div class="visual"><div class="visual-label"><span>FX TRADE ANALYTICS</span><span>機能イメージ</span></div><div class="mini"><p class="mini-title">損益とリスクを、一緒に見る。</p><div class="metric-row"><div><span>見る指標</span><strong>損益・勝率</strong></div><div><span>確認するリスク</span><strong>最大DD・PF</strong></div></div><svg class="graph" viewBox="0 0 340 128" role="img" aria-label="累積損益のグラフを表すイメージ。実績値ではありません。"><path d="M0 24H340M0 64H340M0 104H340" fill="none" stroke="#e2e8e2"/><path d="M0 108L28 103L58 78L86 88L115 60L145 71L173 40L205 51L235 33L270 43L305 14L340 22V128H0Z" fill="#e0ede4"/><path d="M0 108L28 103L58 78L86 88L115 60L145 71L173 40L205 51L235 33L270 43L305 14L340 22" fill="none" stroke="#36725d" stroke-width="2.5"/></svg><p class="mini-caption">全期間 → 年 → 月 ／ 通貨ペア・手法で絞り込み</p></div></div>
+        <div class="project-copy"><p class="number">03 / DATA ANALYSIS</p><h3 id="fx-title">FX取引分析</h3><p class="description">自己資金でFXを続けてきた経験から、損益だけでは見えにくい取引の傾向を振り返るために制作。期間や手法を切り替え、同じ指標で比較できるようにしました。</p>
+          <dl><div class="detail"><dt>試せること</dt><dd>サンプルCSVの集計、年・月別の比較、通貨ペア・手法の絞り込み、取引の価格水準図。</dd></div><div class="detail"><dt>技術</dt><dd>HTML / CSS / JavaScript / Canvas / CSV解析</dd></div><div class="detail"><dt>公開範囲</dt><dd>ログイン不要。サンプルデータで操作できます。読み込んだCSVはブラウザ内で処理し、サーバーへ送信しません。</dd></div></dl>
+          <div class="actions"><a class="open" href="./projects/fx-trade-analytics/">分析デモを試す →</a><a class="code-link" href="https://github.com/yousukesakamoto007/yosuke-sakamoto-ai-portfolio/tree/main/projects/fx-trade-analytics" target="_blank" rel="noreferrer">公開コード ↗</a></div>
+        </div>
+      </article>
       <article class="project" aria-labelledby="jobs-title">
         <div class="visual visual-jobs"><div class="visual-label"><span>JOB ORGANIZER</span><span>匿名サンプルの構成イメージ</span></div><div class="mini"><p class="mini-title">確認したい求人を、見つけやすく。</p><div class="job-flow"><span>条件で絞る</span><span>判定理由を見る</span><span>応募状況を整理</span></div><div class="job-row"><strong>生成AI・業務改善アシスタント</strong><span>未経験OK ／ 初見の会社</span></div><div class="job-row"><strong>Webサービス運用・改善</strong><span>既知会社の別求人 ／ 条件を確認</span></div><div class="job-row"><strong>社内DX推進担当</strong><span>保留 ／ 研修時の出社条件を確認</span></div></div></div>
-        <div class="project-copy"><p class="number">03 / WORKFLOW</p><h3 id="jobs-title">フルリモート求人の整理</h3><p class="description">求人探しで繰り返す、条件の確認と重複チェックを整理。判定の理由や再掲の区別を残し、次にどの求人を確認するか考えやすくしました。</p>
+        <div class="project-copy"><p class="number">04 / WORKFLOW</p><h3 id="jobs-title">フルリモート求人の整理</h3><p class="description">求人探しで繰り返す、条件の確認と重複チェックを整理。判定の理由や再掲の区別を残し、次にどの求人を確認するか考えやすくしました。</p>
           <dl><div class="detail"><dt>試せること</dt><dd>キーワード・経験条件・掲載履歴の絞り込み、応募済み表示の切り替え、応募準備の手順確認。</dd></div><div class="detail"><dt>技術</dt><dd>公開デモ：HTML / CSS / JavaScript</dd></div><div class="detail"><dt>公開範囲</dt><dd>ログイン不要の匿名サンプルです。実際の求人収集・応募入力は行いません。応募済み表示は再読込でリセットされます。</dd></div></dl>
           <div class="actions"><a class="open" href="./projects/remote-job-triage-demo/">求人整理デモを試す →</a><a class="code-link" href="https://github.com/yousukesakamoto007/yosuke-sakamoto-ai-portfolio/tree/main/projects/remote-job-triage-demo" target="_blank" rel="noreferrer">公開コード ↗</a></div>
         </div>
       </article>
     </section>
-    <aside class="supplement" aria-labelledby="relay-title">
-      <div><p class="eyebrow">BACKEND &amp; SECURITY / 補足作品</p><h2 id="relay-title">Relay — 業務依頼の整理と、その裏側</h2><p>Web改修やデータ整理の依頼を、状態と変更履歴で確認するアプリです。本人のデータだけを扱うアクセス制御、同じ送信キーの再送による二重作成の防止、バージョン照合による更新競合への対応を実装。画面の「裏側を見る」で、APIと検証の範囲を紹介しています。</p><p class="scope">ログイン不要で架空サンプルを閲覧できます。自分の依頼の作成・状態更新・履歴保存にはChatGPTログインが必要です。React / TypeScript / D1。本人専用のデモで、チーム共有は含みません。</p></div>
-      <a class="open" href="https://sakamoto-relay-ops.sukekyu82.chatgpt.site/" target="_blank" rel="noreferrer">Relayを見てみる ↗</a>
-    </aside>
-    <section id="about" class="about" aria-labelledby="about-title"><div><p class="eyebrow">HOW I WORK</p><h2 id="about-title">私が考えること、<br />AIと進めること。</h2></div><div><p>何に困っているのか、どこまでできれば役立つのか。課題選びと要件の整理、動作の確認、改善の判断は自分で行っています。コードの実装や検証には、Claude Code・Codexの支援を受けています。</p><p>使ってみて気づいた違和感を、少しずつ直していく。その過程も大切にしています。</p><p class="quote">ご縁を大事に、誰かと役立つものを育てていきたいです。</p></div></section>
+    <section id="about" class="about" aria-labelledby="about-title"><div><p class="eyebrow">HOW I WORK</p><h2 id="about-title">私が考えること、<br />AIと進めること。</h2></div><div><p>何に困っているのか、何を試したいのか。課題を選び、要望を伝え、動かして気づいた点をもとに改善の方向を決めています。設計の相談、コードの実装、テストや問題の切り分けには、Claude Code・Codexの支援を受けています。</p><p>使ってみて気づいた違和感を、少しずつ直していく。その過程も大切にしています。</p><p class="quote">ご縁を大事に、誰かと役立つものを育てていきたいです。</p></div></section>
     <aside class="reference" aria-labelledby="reference-title"><div><p class="eyebrow">OTHER WORK / 参考作品</p><h2 id="reference-title">京丹波・自然農 野菜年間カレンダー</h2><p>地域の気候や作業時期を、月・野菜・作業から調べられる形に整理した作品です。月相農事暦は、科学的な確実性と区別して紹介しています。</p></div><div class="actions"><a class="code-link" href="https://y-sakamoto-fx-analytics.sukekyu82.chatgpt.site/agri/index.html">カレンダーを見る →</a><a class="code-link" href="https://github.com/yousukesakamoto007/yosuke-sakamoto-ai-portfolio/tree/main/projects/natural-farming-calendar" target="_blank" rel="noreferrer">公開コード ↗</a></div></aside>
   </main>
   <footer><div class="wrap footer-inner"><span>坂本 陽介 / Yosuke Sakamoto</span><span>AI活用・業務改善・Webアプリ制作</span></div></footer>

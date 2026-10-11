@@ -35,7 +35,8 @@ test('existing hosted reservation and backend applications remain linked unchang
   assert.match(index, /href="https:\/\/sakamoto-relay-ops\.sukekyu82\.chatgpt\.site\/"/);
   assert.match(index, /href="\.\/projects\/fx-trade-analytics\/"/);
   assert.match(index, /href="\.\/projects\/remote-job-triage-demo\/"/);
-  assert.equal((index.match(/class="project"/g) || []).length, 3);
+  assert.equal((index.match(/class="project"/g) || []).length, 4);
+  assert.ok(index.includes('href="./engineering/relay/"'));
 });
 
 test('published bytes contain no common secrets, local file paths or private data files', () => {
@@ -43,7 +44,7 @@ test('published bytes contain no common secrets, local file paths or private dat
     const text = content(file);
     assert.doesNotMatch(text, /(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-proj-[A-Za-z0-9_-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)/, file);
     assert.doesNotMatch(text, /(?:C:[\\/]Users[\\/]|file:\/\/|127\.0\.0\.1|localhost:\d)/i, file);
-    assert.doesNotMatch(text, /(?:raw_cache\.json|applied\.json|\.env(?:\.local)?|credential\.password)/, file);
+    assert.doesNotMatch(text, /(?:raw_cache\.json|applied\.json|\.env(?:\.[A-Za-z0-9_-]+)?(?![A-Za-z0-9_])|credential\.password)/, file);
   }
 });
 
@@ -54,4 +55,18 @@ test('demo boundaries are clear and no remote upload endpoint is introduced', ()
   assert.doesNotMatch(jobs, /\bfetch\s*\(|XMLHttpRequest|navigator\.sendBeacon/);
   const app = content('projects/fx-trade-analytics/app.js');
   assert.doesNotMatch(app, /\bfetch\s*\(\s*["'`]https?:|XMLHttpRequest|navigator\.sendBeacon/);
+});
+
+test('Relay case study publishes only sanitized, dated verification evidence', () => {
+  const report = JSON.parse(content('engineering/relay/verification-report.json'));
+  assert.deepEqual(Object.keys(report).sort(), ['schemaVersion','generatedAt','sourceFingerprint','environment','total','passed','failed','suites','scope','exclusions'].sort());
+  assert.equal(report.schemaVersion, 1);
+  assert.match(report.sourceFingerprint, /^[a-f0-9]{64}$/);
+  assert.ok(Number.isFinite(Date.parse(report.generatedAt)));
+  assert.equal(report.passed, report.total);
+  assert.equal(report.failed, 0);
+  assert.equal(report.total, report.suites.reduce((sum, suite) => sum + suite.count, 0));
+  assert.deepEqual(Object.keys(report.environment).sort(), ['node','sqlite']);
+  assert.match(content('engineering/relay/index.html'), /本番データへの試験は実行しません/);
+  assert.match(content('engineering/relay/index.html'), /原本は非公開/);
 });
