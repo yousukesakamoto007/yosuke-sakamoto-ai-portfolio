@@ -37,6 +37,14 @@ React 19、TypeScript、Vinext（Next.js App Router互換）、Cloudflare D1、D
 
 [自然農カレンダーを見る](https://y-sakamoto-fx-analytics.sukekyu82.chatgpt.site/agri/)
 
+## Supplementary Showcase: Relay | 業務依頼管理
+
+主力3作品を補足する業務依頼管理デモです。架空のサンプルは閲覧専用で、ChatGPTにログインすると自分の依頼を保存・更新できます。本人別のデータ境界、再送時の重複作成防止、楽観的ロック、D1トリガーによる状態変更履歴を設計しています。
+
+[Relayを開く](https://sakamoto-relay-ops.sukekyu82.chatgpt.site/)
+
+設計の概要と制約は[Relayショーケース](docs/relay-ops-showcase.md)を参照してください。ソース原本は非公開です。このデモは侵入テストや第三者診断を受けた認証済み製品ではなく、複数人の共有チームやロール管理機能も提供しません。
+
 ## AI-Assisted Development
 
 本人が課題を設定し、要件と完成条件を整理して、デモの動作を確認しています。AIコーディングエージェントは設計相談や実装の支援に使っています。ここで紹介するものはポートフォリオ作品であり、導入実績や顧客向け運用実績を示すものではありません。
