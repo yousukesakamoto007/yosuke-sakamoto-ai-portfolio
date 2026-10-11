@@ -11,4 +11,5 @@ report/
 *.log
 *.tar.gz
 *.zip
+_site/
 

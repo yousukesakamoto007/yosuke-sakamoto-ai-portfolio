@@ -69,9 +69,9 @@
   <body>
     <header><h1>フルリモート求人 日次トリアージ</h1><p>収集、適合判定、履歴管理、応募準備を一つの流れにした現在版</p></header>
     <main>
-      <div class="notice"><strong>公開用の匿名サンプル</strong><p>実運用版はPC起動後に日次レポートを生成します。実在求人・個人情報・ログイン情報は公開していません。</p></div>
+      <div class="notice"><strong>公開用の架空サンプル7件</strong><p>この公開デモでは求人の収集・応募送信を行いません。「応募準備」は手順の紹介です。実在求人・個人情報・ログイン情報は公開していません。応募済みの表示は再読み込みでリセットされます。</p><p>下の件数は、絞り込み前の全7件を重複なく分類したものです。</p></div>
       <section class="tally" aria-label="日次集計">
-        <div class="metric"><span>未経験OK・新規</span><strong>1</strong></div><div class="metric"><span>未経験OK・その他</span><strong>15</strong></div><div class="metric"><span>経験者・不明</span><strong>149</strong></div><div class="metric"><span>応募済み企業</span><strong id="appliedCount">0</strong></div><div class="metric"><span>保留</span><strong>0</strong></div><div class="metric"><span>除外</span><strong>1</strong></div>
+        <div class="metric"><span>未経験OK・新規</span><strong id="newCount">2</strong></div><div class="metric"><span>未経験OK・その他</span><strong id="otherCount">1</strong></div><div class="metric"><span>経験者・不明</span><strong id="experiencedCount">1</strong></div><div class="metric"><span>応募済み求人</span><strong id="appliedCount">0</strong></div><div class="metric"><span>保留</span><strong id="heldCount">2</strong></div><div class="metric"><span>除外</span><strong id="rejectedCount">1</strong></div>
       </section>
       <section class="filters" aria-label="求人を絞り込む">
         <div class="filter-grid">
@@ -83,7 +83,7 @@
         <div class="filter-actions"><label class="check"><input id="hideReposted" type="checkbox" checked />再掲を隠す</label><label class="check"><input id="hideWarning" type="checkbox" />要確認を隠す</label><button id="reset" class="secondary" type="button">リセット</button><span id="visibleCount" class="visible-count"></span></div>
       </section>
       <section id="groups" class="groups"></section><div id="empty" class="empty">条件に一致する求人がありません。</div>
-      <a class="back" href="/portfolio/index.html">ポートフォリオ一覧へ戻る</a>
+      <a class="back" href="../../index.html">ポートフォリオ一覧へ戻る</a>
     </main>
     <dialog id="prepareDialog" aria-labelledby="prepareTitle">
       <div class="dialog-head"><h2 id="prepareTitle">応募準備</h2><button id="closeDialog" class="close" type="button" aria-label="閉じる" title="閉じる">×</button></div>
@@ -99,18 +99,21 @@
         { id:6, score:58, status:"hold", experience:"required", history:"new_role", employment:"正社員", title:"フロントエンドエンジニア", company:"匿名サンプル企業F", location:"全国 / 在宅", age:"掲載4日前", training:"OJT形態不明", reason:"React経験歓迎だが、実務経験が必須かを詳細確認", group:"経験者向け・要否不明" },
         { id:7, score:31, status:"reject", experience:"required", history:"first", employment:"正社員", title:"シニアバックエンドエンジニア", company:"匿名サンプル企業G", location:"週3日出社", age:"掲載2日前", training:"出社研修", reason:"フルリモート条件と開発実務5年以上の要件を満たさない", group:"除外" }
       ];
-      const groupOrder=["未経験OK・新規掲載","未経験OK・その他","経験者向け・要否不明","応募済みの会社","保留","除外"];
+      const groupOrder=["未経験OK・新規掲載","未経験OK・その他","経験者向け・要否不明","応募済みの求人","保留","除外"];
       const labels={first:"初見の会社",new_role:"既知会社の別求人",reposted:"再掲"};
       const groups=document.querySelector("#groups"), empty=document.querySelector("#empty"), keyword=document.querySelector("#keyword"), experience=document.querySelector("#experience"), history=document.querySelector("#history"), employment=document.querySelector("#employment"), hideReposted=document.querySelector("#hideReposted"), hideWarning=document.querySelector("#hideWarning"), dialog=document.querySelector("#prepareDialog");
       const applied=new Set();
+      const tallyIds={"未経験OK・新規掲載":"newCount","未経験OK・その他":"otherCount","経験者向け・要否不明":"experiencedCount","応募済みの求人":"appliedCount","保留":"heldCount","除外":"rejectedCount"};
+      function groupForJob(j){return applied.has(j.id)?"応募済みの求人":j.status==="hold"?"保留":j.group;}
       function escapeHtml(value){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
       function render(){
+        const totals=new Map(groupOrder.map(name=>[name,0]));jobs.forEach(j=>totals.set(groupForJob(j),totals.get(groupForJob(j))+1));totals.forEach((count,name)=>{document.getElementById(tallyIds[name]).textContent=count;});
         const q=keyword.value.trim().toLowerCase();
         const rows=jobs.filter(j=>(experience.value==="all"||j.experience===experience.value)&&(history.value==="all"||j.history===history.value)&&(employment.value==="all"||j.employment===employment.value)&&(!hideReposted.checked||j.history!=="reposted")&&(!hideWarning.checked||j.status!=="hold")&&(!q||`${j.title} ${j.company} ${j.location}`.toLowerCase().includes(q)));
         const buckets=new Map(groupOrder.map(name=>[name,[]]));
-        rows.forEach(j=>buckets.get(applied.has(j.id)?"応募済みの会社":j.status==="hold"?"保留":j.group).push(j));
+        rows.forEach(j=>buckets.get(groupForJob(j)).push(j));
         groups.innerHTML=groupOrder.map(name=>{const list=buckets.get(name);if(!list.length)return "";return `<section class="group"><h2>${name}<span>${list.length}件</span></h2><div class="cards">${list.map(card).join("")}</div></section>`}).join("");
-        empty.style.display=rows.length?"none":"block";document.querySelector("#visibleCount").textContent=`表示 ${rows.length}件`;document.querySelector("#appliedCount").textContent=applied.size;
+        empty.style.display=rows.length?"none":"block";document.querySelector("#visibleCount").textContent=`表示 ${rows.length}件`;
       }
       function card(j){const expLabel=j.experience==="open"?"未経験OK":j.experience==="required"?"経験者向け":"経験要否不明";return `<article class="card ${j.status}"><div class="score">${j.score}</div><div><h3>${escapeHtml(j.title)}</h3><div class="badges"><span class="badge ${j.experience}">${expLabel}</span><span class="badge ${j.history.replace("_","-")}">${labels[j.history]}</span>${applied.has(j.id)?'<span class="badge applied">応募済み</span>':""}</div><p class="meta">${escapeHtml(j.company)} / ${escapeHtml(j.employment)} / ${escapeHtml(j.location)} / ${escapeHtml(j.age)}</p><p class="training ${j.status==="hold"?"warn":""}">研修判定：${escapeHtml(j.training)}</p><p class="reason">判定理由：${escapeHtml(j.reason)}</p></div><div class="actions"><button type="button" data-prepare="${j.id}">応募準備</button><button class="mark" type="button" data-applied="${j.id}">${applied.has(j.id)?"応募済み解除":"応募済みに追加"}</button></div></article>`;}
       [keyword,experience,history,employment,hideReposted,hideWarning].forEach(el=>el.addEventListener(el===keyword?"input":"change",render));

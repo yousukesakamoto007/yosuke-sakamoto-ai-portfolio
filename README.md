@@ -4,10 +4,22 @@
 
 ## Live Demo
 
-- [Portfolio](https://y-sakamoto-fx-analytics.sukekyu82.chatgpt.site/portfolio/)
-- [FX Trade Analytics](https://y-sakamoto-fx-analytics.sukekyu82.chatgpt.site/demo/)
+- [Portfolio](https://yousukesakamoto007.github.io/yosuke-sakamoto-ai-portfolio/)
+- [FX Trade Analytics](https://yousukesakamoto007.github.io/yosuke-sakamoto-ai-portfolio/projects/fx-trade-analytics/)
 - [余白カフェ予約デモ](https://yohaku-cafe-reservation.sukekyu82.chatgpt.site)
-- [フルリモート求人 日次トリアージ](https://y-sakamoto-fx-analytics.sukekyu82.chatgpt.site/jobs-demo/)
+- [フルリモート求人 日次トリアージ](https://yousukesakamoto007.github.io/yosuke-sakamoto-ai-portfolio/projects/remote-job-triage-demo/)
+
+Portfolio、FX分析、求人整理の配信先はGitHub Pagesです。許可した静的ファイルだけを公開する構成です。FXのCSVはブラウザ内で処理し、求人デモは架空の内容を使います。ログイン後の保存機能を含む余白カフェとRelayは、現在のSitesホストでの公開を続けます。非公開コード原本は公開しません。
+
+### 公開の仕組み
+
+`scripts/build-pages.mjs` に明記したファイルだけを `_site/` に生成します。リポジトリ全体、テスト、文書、非公開の原本や応募データはPagesの配信物に含めません。GitHub Actionsは集計・デモ操作・相対リンク・公開範囲のテスト後、`main` からGitHub Pagesへ配信します。
+
+ローカル確認（Node.js 24、追加パッケージ不要）:
+
+```sh
+node --test projects/fx-trade-analytics/tests/analytics-core.test.js projects/remote-job-triage-demo/tests/demo.test.cjs scripts/pages.test.mjs
+```
 
 ## Projects
 
