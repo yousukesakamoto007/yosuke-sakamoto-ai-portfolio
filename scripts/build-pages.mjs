@@ -8,6 +8,8 @@ export const output = join(root, '_site');
 // This is intentionally an allowlist, not a copy of the repository or private sources.
 export const publicFiles = Object.freeze([
   'index.html',
+  'assets/portfolio.css',
+  'engineering/product-work/index.html',
   'engineering/relay/index.html',
   'engineering/relay/verification-report.json',
   'projects/fx-trade-analytics/index.html',
