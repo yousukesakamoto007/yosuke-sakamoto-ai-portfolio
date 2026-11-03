@@ -9,6 +9,8 @@ export const output = join(root, '_site');
 export const publicFiles = Object.freeze([
   'index.html',
   'assets/portfolio.css',
+  'assets/chat-sample.jpg',
+  'assets/capture-sample.png',
   'engineering/product-work/index.html',
   'engineering/relay/index.html',
   'engineering/relay/verification-report.json',

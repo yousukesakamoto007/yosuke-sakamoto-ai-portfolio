@@ -46,6 +46,7 @@ test('existing hosted reservation and backend applications remain linked unchang
 
 test('published bytes contain no common secrets, local file paths or private data files', () => {
   for (const file of publicFiles) {
+    if (!/\.(html|css|js|json|csv)$/.test(file)) continue;
     const text = content(file);
     assert.doesNotMatch(text, /(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-proj-[A-Za-z0-9_-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)/, file);
     assert.doesNotMatch(text, /(?:C:[\\/]Users[\\/]|file:\/\/|127\.0\.0\.1|localhost:\d)/i, file);
@@ -75,4 +76,21 @@ test('Relay case study publishes only sanitized, dated verification evidence', (
   assert.deepEqual(Object.keys(report.environment).sort(), ['node','sqlite']);
   assert.match(content('engineering/relay/index.html'), /本番データへの試験は実行しません/);
   assert.match(content('engineering/relay/index.html'), /原本は非公開/);
+});
+
+test('sample image formats and HTML dimensions match reviewed assets', () => {
+  for (const file of publicFiles.filter(file => file.endsWith('.png'))) {
+    const bytes = readFileSync(join(output, file));
+    assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+    assert.ok(bytes.readUInt32BE(16) >= 1000);
+    assert.ok(bytes.readUInt32BE(20) >= 700);
+  }
+  assert.equal(readFileSync(join(output, 'assets/chat-sample.jpg')).subarray(0, 3).toString('hex'), 'ffd8ff');
+  for (const file of ['index.html','engineering/product-work/index.html']) {
+    for (const [tag] of content(file).matchAll(/<img\b[^>]*>/g)) {
+      assert.match(tag, /alt="[^"]+"/);
+      assert.match(tag, /width="\d+"/);
+      assert.match(tag, /height="\d+"/);
+    }
+  }
 });
