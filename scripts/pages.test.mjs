@@ -11,7 +11,7 @@ const content = file => readFileSync(join(output, file), 'utf8');
 test('deployment contains only reviewed static runtime files', () => {
   assert.deepEqual(listFiles(output), [...publicFiles, '.nojekyll'].sort());
   for (const file of publicFiles) assert.ok(statSync(join(output, file)).size > 0);
-  assert.ok(publicFiles.reduce((bytes, file) => bytes + statSync(join(output, file)).size, 0) < 1_000_000);
+  assert.ok(publicFiles.reduce((bytes, file) => bytes + statSync(join(output, file)).size, 0) < 1_100_000);
 });
 
 test('links and assets resolve within the GitHub Pages project subpath', () => {
@@ -85,7 +85,9 @@ test('sample image formats and HTML dimensions match reviewed assets', () => {
     assert.ok(bytes.readUInt32BE(16) >= 1000);
     assert.ok(bytes.readUInt32BE(20) >= 700);
   }
-  assert.equal(readFileSync(join(output, 'assets/chat-sample.jpg')).subarray(0, 3).toString('hex'), 'ffd8ff');
+  for (const file of publicFiles.filter(file => file.endsWith('.jpg'))) {
+    assert.equal(readFileSync(join(output, file)).subarray(0, 3).toString('hex'), 'ffd8ff');
+  }
   for (const file of ['index.html','engineering/product-work/index.html']) {
     for (const [tag] of content(file).matchAll(/<img\b[^>]*>/g)) {
       assert.match(tag, /alt="[^"]+"/);

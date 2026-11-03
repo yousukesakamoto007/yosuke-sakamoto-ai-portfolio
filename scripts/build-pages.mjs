@@ -11,6 +11,7 @@ export const publicFiles = Object.freeze([
   'assets/portfolio.css',
   'assets/chat-sample.jpg',
   'assets/capture-sample.png',
+  'assets/mizukagami-sample.jpg',
   'engineering/product-work/index.html',
   'engineering/relay/index.html',
   'engineering/relay/verification-report.json',
