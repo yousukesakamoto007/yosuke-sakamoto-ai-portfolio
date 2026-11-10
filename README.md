@@ -1,6 +1,6 @@
 # Yosuke Sakamoto AI-Assisted Portfolio
 
-Web改修の有償実務と、自社の業務から生まれた制作を分けて紹介するポートフォリオです。2026年11月3日に、チャット、記事公開自動化、Job Radar、MT5移植・EA、水鏡相場録、動画分析、Windowsキャプチャの7件を中心に再構成しました。AIエージェントの設計・実装・検証支援を使った開発であり、LLM APIの製品組み込みやモデル学習の経験としては記載しません。
+自社の業務から生まれた制作と、公開用デモを分けて紹介するポートフォリオです。2026年11月3日に、チャット、記事公開自動化、Job Radar、MT5移植・EA、水鏡相場録、動画分析、Windowsキャプチャの7件を中心に再構成しました。AIエージェントの設計・実装・検証支援を使った開発であり、LLM APIの製品組み込みやモデル学習の経験としては記載しません。
 
 ## Live Demo
 
@@ -21,6 +21,8 @@ Portfolio、FX分析、求人整理は、許可した静的ファイルだけを
 ```sh
 node --test projects/fx-trade-analytics/tests/analytics-core.test.js projects/remote-job-triage-demo/tests/demo.test.cjs scripts/pages.test.mjs
 ```
+
+2026年11月10日、本人の最新確認に合わせて経歴紹介を訂正し、協働への考え方と「過去検証ツール」「売買ルールのEA化」の表現を更新しました。制作物の検証日時は個別の根拠に記載しています。
 
 ## Recent project case studies
 
