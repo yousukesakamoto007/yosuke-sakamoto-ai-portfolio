@@ -30,7 +30,7 @@ node --test projects/fx-trade-analytics/tests/analytics-core.test.js projects/re
 
 | 制作物 | 整理時点の状態 | 主な内容 |
 | --- | --- | --- |
-| 受講生向けチャット | 自社で利用・改善中 | 認証、部屋の権限、検索、PC停止中の一時受付 |
+| 学び場 | 利用・改善中 | 仲間とのやり取りに使っているチャット。招待、部屋ごとの閲覧権限、検索、PC停止中の一時受付 |
 | 記事公開の自動化 | 自社運用 | 保存検知、重複防止、公開、通知、履歴 |
 | Job Radar | 本人利用・改善中 | Gmail読取専用接続、公開API、条件整理、更新状態管理 |
 | MT5移植・EA | テスター検証中 | MQL5とPythonの別実装の比較、指標の設定保持 |
@@ -42,7 +42,7 @@ node --test projects/fx-trade-analytics/tests/analytics-core.test.js projects/re
 
 ## Public sample images
 
-- `assets/chat-sample.jpg`: 元の通常チャットHTML・CSSを使い、架空3部屋・講師・受講生A・架空3メッセージを専用スクリプトで表示したChromeキャプチャ。認証・通信・投稿機能を含まない閲覧サンプルです。
+- `assets/chat-sample.jpg`: 「学び場」のHTMLとCSSを使い、架空の3部屋と仲間同士の会話を表示して撮影した画面です。
 - `assets/capture-sample.png`: 実際のWindowsアプリの描画処理で、合成画像と注釈を画面外描画したプレビュー。既存の撮影履歴は使用していません。
 
 - `assets/mizukagami-sample.jpg`: 水鏡相場録の独立した合成デモをChromeで確認した画面。2026年10月29日の確認用画像から、口座・個人記録・非公開URLを含まないものを選びました。画面の資産や価格は実際の取引・運用成績ではありません。
